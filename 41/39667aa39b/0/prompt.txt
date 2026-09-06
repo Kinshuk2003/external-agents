@@ -1,0 +1,102 @@
+See i see you committed and pushed  @/c:/Users/kinsh/dev/external-agents/BUILD-GUIDE.md @/c:/Users/kinsh/dev/external-agents/BTW Buildathon 2026 - Participant Guide.pdf 
+
+and @/c:/Users/kinsh/dev/external-agents/DESIGN.md 
+
+
+these 3 documents as well we do not have to push these as these are only for helping me to build and it needs to be present only in my local and need not to be pushed to the remote
+
+---
+
+Ok we do need to freeze right now as the curve ball is delayed a bit, So keeping that in consideration Now what is left according to the original planning document, can you please do a audit ?
+
+---
+
+Audit complete. Everything below is verified, not assumed.
+
+🔴 Blockers — hard requirements not met
+1. Checkpoint 1 does not exist. This is the serious one.
+
+The participant guide requires the history to include "Initial understanding and intended architecture." Both commits that were supposed to carry it return:
+
+
+✗ No associated Entire checkpoint
+  commit   3ba6684   reason  no Entire-Checkpoint trailer
+  hint     the commit exists but was not created during an Entire session
+3ba6684 (initial understanding) and c28e6bf (probe) were both made outside an Entire session, so no checkpoint was minted. Your oldest real checkpoint is 2463e7d = Checkpoint 2. One of four mandatory checkpoints is missing, and it's the one that proves your architecture was reasoned before you coded.
+
+2. BUILDATHON.md — missing. Required submission artifact; skeleton is in your guide §8.
+
+3. evidence/ — missing. The three required graph artifacts (search/definition lookup, impact before a high-risk change, final semantic diff) were captured as test fixtures but never saved to evidence/ as the guide §6 requires.
+
+🟡 Quality gaps
+4. Checkpoint history reads badly. 5 checkpoints, but 3 are noise from the doc-untracking, and titles are your raw prompts — "See i see you committed and pushed @/c:/Users/kinsh/dev/...". The guide says quality beats quantity; entire checkpoint is read-only so these can't be deleted, only outweighed.
+
+5. known_traps has never fired live — it returns empty with a correct degradation message. You now have 5 checkpoints, so re-running propose may finally populate it. Until then, one of your two Entire inputs is unproven end-to-end. This is a product gap, not just a test gap.
+
+6. Clean-checkout run untested (§9 says "actually test this"). dist/ is gitignored, so on a fresh clone .mcp.json points at a file that doesn't exist until someone runs npm install && npm run build. README documents it; nobody has walked it.
+
+7. Drift warnings still noisy — 13 rows including .gitignore and ci.yml.
+
+8. DESIGN §9 layer 3 (automated end-to-end smoke test) not done — rehearsed by hand only.
+
+✅ Verified done
+Build steps 1–5 all complete. npm test → 14 passing via the documented script. MCP handshake verified. Demo path rehearsed end-to-end. CLI hedge built. Mirror clone, entire enable, graph init-agents all confirmed. Checkpoint 2 is rich and well-formed.
+
+Also checked: the repo's CI won't break on your work. ci.yml builds a matrix discovered from agents/; nothing references mcp/. It didn't run on your branch push, and it will pass if you open a PR.
+
+Recommended order
+Mint Checkpoint 1 now — cheap, and it closes a hard requirement. It'll be timestamped late; I'd record it honestly as reconstructed rather than backdate anything.
+evidence/ — three commands, also a required artifact.
+Re-run propose to see if traps populate now that checkpoints exist.
+Draft BUILDATHON.md — most of it already exists in DESIGN.md.
+Then polish: drift noise, clean-checkout walk, E2E test.
+Your message read as both "freeze now" and "curveball is delayed" — I've held off changing anything. Say the word and I'll start at item 1; it's the one I'd not leave unfixed regardless of what the curveball turns out to be.
+
+
+now according to this audit and the gaps found, can you fix all the gaps which is in your scope, and provide me the steps for the things which i may have to do the manually
+
+---
+
+Audit complete. Everything below is verified, not assumed.
+
+🔴 Blockers — hard requirements not met
+1. Checkpoint 1 does not exist. This is the serious one.
+
+The participant guide requires the history to include "Initial understanding and intended architecture." Both commits that were supposed to carry it return:
+
+
+✗ No associated Entire checkpoint
+  commit   3ba6684   reason  no Entire-Checkpoint trailer
+  hint     the commit exists but was not created during an Entire session
+3ba6684 (initial understanding) and c28e6bf (probe) were both made outside an Entire session, so no checkpoint was minted. Your oldest real checkpoint is 2463e7d = Checkpoint 2. One of four mandatory checkpoints is missing, and it's the one that proves your architecture was reasoned before you coded.
+
+2. BUILDATHON.md — missing. Required submission artifact; skeleton is in your guide §8.
+
+3. evidence/ — missing. The three required graph artifacts (search/definition lookup, impact before a high-risk change, final semantic diff) were captured as test fixtures but never saved to evidence/ as the guide §6 requires.
+
+🟡 Quality gaps
+4. Checkpoint history reads badly. 5 checkpoints, but 3 are noise from the doc-untracking, and titles are your raw prompts — "See i see you committed and pushed @/c:/Users/kinsh/dev/...". The guide says quality beats quantity; entire checkpoint is read-only so these can't be deleted, only outweighed.
+
+5. known_traps has never fired live — it returns empty with a correct degradation message. You now have 5 checkpoints, so re-running propose may finally populate it. Until then, one of your two Entire inputs is unproven end-to-end. This is a product gap, not just a test gap.
+
+6. Clean-checkout run untested (§9 says "actually test this"). dist/ is gitignored, so on a fresh clone .mcp.json points at a file that doesn't exist until someone runs npm install && npm run build. README documents it; nobody has walked it.
+
+7. Drift warnings still noisy — 13 rows including .gitignore and ci.yml.
+
+8. DESIGN §9 layer 3 (automated end-to-end smoke test) not done — rehearsed by hand only.
+
+✅ Verified done
+Build steps 1–5 all complete. npm test → 14 passing via the documented script. MCP handshake verified. Demo path rehearsed end-to-end. CLI hedge built. Mirror clone, entire enable, graph init-agents all confirmed. Checkpoint 2 is rich and well-formed.
+
+Also checked: the repo's CI won't break on your work. ci.yml builds a matrix discovered from agents/; nothing references mcp/. It didn't run on your branch push, and it will pass if you open a PR.
+
+Recommended order
+Mint Checkpoint 1 now — cheap, and it closes a hard requirement. It'll be timestamped late; I'd record it honestly as reconstructed rather than backdate anything.
+evidence/ — three commands, also a required artifact.
+Re-run propose to see if traps populate now that checkpoints exist.
+Draft BUILDATHON.md — most of it already exists in DESIGN.md.
+Then polish: drift noise, clean-checkout walk, E2E test.
+Your message read as both "freeze now" and "curveball is delayed" — I've held off changing anything. Say the word and I'll start at item 1; it's the one I'd not leave unfixed regardless of what the curveball turns out to be.
+
+
+now according to this audit and the gaps found, can you fix all the gaps which is in your scope, and provide me the steps for the things which i may have to do the manually
