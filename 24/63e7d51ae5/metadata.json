@@ -1,0 +1,33 @@
+{
+  "cli_version": "0.10.5",
+  "checkpoint_id": "2463e7d51ae5",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "mcp/entire-guard/README.md",
+    "mcp/entire-guard/src/adjudicate/adjudicate.test.ts",
+    "mcp/entire-guard/src/adjudicate/adjudicate.ts",
+    "mcp/entire-guard/src/cli.ts",
+    "mcp/entire-guard/src/contract/build.test.ts",
+    "mcp/entire-guard/src/contract/build.ts",
+    "mcp/entire-guard/src/core.ts",
+    "mcp/entire-guard/src/server.ts"
+  ],
+  "sessions": [
+    {
+      "metadata": "/24/63e7d51ae5/0/metadata.json",
+      "transcript": "/24/63e7d51ae5/0/full.jsonl",
+      "compact_transcript": "/24/63e7d51ae5/0/transcript.jsonl",
+      "content_hash": "/24/63e7d51ae5/0/content_hash.txt",
+      "prompt": "/24/63e7d51ae5/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 82,
+    "cache_creation_tokens": 107854,
+    "cache_read_tokens": 4212407,
+    "output_tokens": 52663,
+    "api_call_count": 41
+  }
+}
