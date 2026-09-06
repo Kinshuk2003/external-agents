@@ -100,3 +100,11 @@ Your message read as both "freeze now" and "curveball is delayed" — I've held 
 
 
 now according to this audit and the gaps found, can you fix all the gaps which is in your scope, and provide me the steps for the things which i may have to do the manually
+
+---
+
+ok this looks good, I am waiting for the curve ball to land, meanwhile, I want you to brainstrom with me what else feature or things we can build on top of the current build, to make it closer to the winning solution for the entire Track 3 please refer the participant guide, and lets create a separate document for it  and will keep it as the strech goal if there will be time for us to do
+
+---
+
+I have installed the go in the local just now
