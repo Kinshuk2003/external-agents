@@ -317,18 +317,24 @@ truth turning out to be a source of *claims*.
 
 ## Checkpoint links and what each checkpoint proves
 
-| # | Checkpoint | Commit | What it proves |
-|---|---|---|---|
-| 1 | Initial understanding and intended architecture | `6ac492c` | The problem, the two-tool design, the stateful-interval argument, and the options rejected (LLM trap extraction, trusting `--max-context-bytes`, heuristic-driven FAIL) — with what would falsify the idea |
-| 2 | Last stable state before the Noon Curveball | `85c1b9b` | The runnable slice, six assumptions the build invalidated, and the open risks going in |
-| 3 | Response to the Noon Curveball | *pending* | — |
-| 4 | Final implementation and verification | *pending* | — |
+Link and inspect these by **checkpoint ID**, not by title. Entire titles a checkpoint from
+whichever user prompt was active when the commit landed, so several of ours read as file
+attachments rather than as descriptions. The substance is in the commit bodies, which
+`explain --full` prints.
 
-Inspect any of them:
+| # | Checkpoint ID | Commit | What it proves |
+|---|---|---|---|
+| 1 | `362b7ddbefdc` | `6ac492c` | Initial understanding and intended architecture: the problem, the two-tool design, the stateful-interval argument, and the options rejected (LLM trap extraction, trusting `--max-context-bytes`, heuristic-driven FAIL) — with what would falsify the idea |
+| 2 | `2463e7d51ae5` | `85c1b9b` | The runnable end-to-end slice at the pre-noon freeze, plus six assumptions the build invalidated |
+| 3 | `0b7f487b6e75` | `28a5705` | **The stable state entering the Curveball** — the checkpoint the fresh session reconstructed from, carrying the open risks going in |
+| 4 | `5ce69064166d` | `b517beb` | **The Curveball response**: the invalidated assumption, the pre-edit graph impact and the two negative findings that narrowed the change, the additive-only safety invariant, 33 → 82 tests, and three defects corrected rather than shipped |
+
+Reconstruct the pre-Curveball state exactly as this session did:
 
 ```bash
+entire checkpoint explain 0b7f487b6e75 --full     # intent and open risks going in
+entire checkpoint explain 5ce69064166d --full     # what changed after the Curveball, and why it is safe
 entire checkpoint list
-entire checkpoint explain <checkpoint_id> --full
 ```
 
 **An honest note on Checkpoint 1.** The commits originally intended to carry it (`3ba6684`,
