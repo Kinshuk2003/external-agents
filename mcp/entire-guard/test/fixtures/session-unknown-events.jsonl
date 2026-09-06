@@ -1,0 +1,6 @@
+{"timestamp": "2026-09-06T11:00:00.000+05:30", "event": "session_started", "session_id": "btw-unknown-001", "agent": {"name": "AcmeCode", "version": "1.9.0"}, "repository": "github.com/example/checkout-service", "branch": "feature/add-coupon-validation"}
+{"timestamp": "2026-09-06T11:00:03.100+05:30", "event": "thinking_block", "session_id": "btw-unknown-001", "tokens": 812}
+{"timestamp": "2026-09-06T11:00:41.700+05:30", "event": "file_changed", "session_id": "btw-unknown-001", "path": "src/checkout/apply_coupon.ts", "change": "modified", "summary": "Tightened the minimum cart value comparison.", "lines_added": 4, "lines_removed": 1}
+{"timestamp": "2026-09-06T11:00:52.300+05:30", "event": "mcp_tool_call", "session_id": "btw-unknown-001", "server": "entire-guard", "tool": "verify_change", "call_id": "mcp-001"}
+{"timestamp": "2026-09-06T11:01:04.900+05:30", "event": "subagent_spawned", "session_id": "btw-unknown-001", "subagent_id": "sa-1", "subagent_type": "reviewer"}
+{"timestamp": "2026-09-06T11:01:20.050+05:30", "event": "session_ended", "session_id": "btw-unknown-001", "status": "completed", "duration_seconds": 80}

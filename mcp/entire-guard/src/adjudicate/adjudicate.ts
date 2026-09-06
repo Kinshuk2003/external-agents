@@ -116,11 +116,121 @@ export function adjudicate(
     }
   }
 
+  // ---------------------------------------------------------------------
+  // Claim reconciliation -- the Noon Curveball half.
+  //
+  // The rule enforced here is ADDITIVE-ONLY: session evidence may only ever
+  // add findings. It never discharges an obligation, never shrinks
+  // out_of_bounds, and never removes anything. That is what makes
+  //
+  //     severity(git + session) >= severity(git)
+  //
+  // true by construction rather than by test coverage -- and it is why a
+  // truncated transcript, which yields fewer claims, cannot turn a FAIL into
+  // a PASS.
+  // ---------------------------------------------------------------------
+  const session = actual.session;
+
+  const out_of_bounds_by_claim: Verdict["out_of_bounds_by_claim"] = [];
+  const unverified_claims: Verdict["unverified_claims"] = [];
+  const unclaimed_changes: Verdict["unclaimed_changes"] = [];
+  const sessionDegraded: string[] = [];
+
+  let evidence_basis: Verdict["evidence_basis"] = "deterministic";
+
+  if (session) {
+    evidence_basis = actual.git_unavailable ? "claimed_only" : "reconciled";
+
+    const claimed = new Map(
+      session.claimed_changes.map((c) => [normalisePath(c.path), c] as const),
+    );
+    const alreadyFailedByGit = new Set(out_of_bounds.map((o) => o.path));
+
+    for (const [path, change] of claimed) {
+      const inRadius =
+        allowed.has(path) ||
+        isAlwaysAllowed(path, policy) ||
+        (policy.exclude_tests && looksLikeTest(path));
+
+      if (!inRadius) {
+        // The stronger deterministic finding subsumes the weaker claimed one,
+        // exactly as a proven caller subsumes a heuristic co-change.
+        if (alreadyFailedByGit.has(path)) continue;
+        out_of_bounds_by_claim.push({
+          path,
+          note:
+            "the agent's own transcript reports " +
+            change.kind +
+            " this file, which is outside the blast radius proved for " +
+            contract.target.symbol +
+            " (transcript line " +
+            change.line +
+            ")",
+          provenance: session.provenance,
+        });
+        continue;
+      }
+
+      if (!changed.has(path)) {
+        unverified_claims.push({
+          path,
+          note:
+            "claimed " +
+            change.kind +
+            " at transcript line " +
+            change.line +
+            ", but the diff against " +
+            contract.base_sha +
+            " does not show it; the claim could not be confirmed here",
+          provenance: session.provenance,
+        });
+      }
+    }
+
+    for (const path of changed) {
+      if (claimed.has(path)) continue;
+      if (isAlwaysAllowed(path, policy)) continue;
+      unclaimed_changes.push({
+        path,
+        note:
+          "changed on disk but never mentioned in the transcript; an edit made " +
+          "outside the agent session, or one the transcript did not record",
+        provenance: session.provenance,
+      });
+    }
+
+    // The transcript's own degradation is the verdict's degradation. An
+    // unreadable line or an unrecognised event is a gap in what we know.
+    sessionDegraded.push(...session.degraded);
+
+    if (evidence_basis === "claimed_only") {
+      sessionDegraded.push(
+        "verdict rests on claimed transcript evidence only: git evidence for the change set was " +
+          "unavailable, so no claim could be confirmed against disk. PASS is not available on " +
+          "this basis.",
+      );
+    }
+
+    if (session.repo && !contract.repo_root.split("\\").join("/").includes(session.repo)) {
+      sessionDegraded.push(
+        'transcript reports repository "' +
+          session.repo +
+          '" which does not match the contract repo_root "' +
+          contract.repo_root +
+          '"; claimed paths may be relative to a different checkout, so the claim findings ' +
+          "below may reflect that mismatch rather than a real breach",
+      );
+    }
+  }
+
   const degraded = [...contract.degraded, ...actual.degraded];
+  degraded.push(...sessionDegraded);
+
 
   const failing =
     (policy.fail_on.includes("out_of_bounds") && out_of_bounds.length > 0) ||
     (policy.fail_on.includes("forgotten") && forgotten.length > 0) ||
+    (policy.fail_on.includes("out_of_bounds_by_claim") && out_of_bounds_by_claim.length > 0) ||
     (policy.fail_on_degraded && degraded.length > 0);
 
   const warning =
@@ -128,13 +238,24 @@ export function adjudicate(
     drift_candidates.length > 0 ||
     out_of_bounds.length > 0 ||
     forgotten.length > 0 ||
+    out_of_bounds_by_claim.length > 0 ||
+    unverified_claims.length > 0 ||
+    unclaimed_changes.length > 0 ||
     degraded.length > 0;
 
-  const status: Verdict["status"] = failing ? "FAIL" : warning ? "WARN" : "PASS";
+  let status: Verdict["status"] = failing ? "FAIL" : warning ? "WARN" : "PASS";
+
+  // Incomplete context is never presented as an authoritative result: with no
+  // git evidence to confirm a single claim, a clean PASS would be a fabrication.
+  if (evidence_basis === "claimed_only" && status === "PASS") status = "WARN";
 
   return {
     status,
+    evidence_basis,
     out_of_bounds,
+    out_of_bounds_by_claim,
+    unverified_claims,
+    unclaimed_changes,
     forgotten,
     drift_candidates,
     traps_hit,

@@ -4,6 +4,24 @@
  */
 import type { ChangeContract, Verdict } from "./types.js";
 
+/**
+ * Say what the basis means, not just what it is called.
+ *
+ * The card requires the interface to distinguish complete from incomplete
+ * context. A bare label does not do that for a reader who has never seen the
+ * type, so the constraint is spelled out where the verdict is read.
+ */
+function basisNote(basis: Verdict["evidence_basis"]): string {
+  switch (basis) {
+    case "deterministic":
+      return " (git diff only; no agent transcript was supplied)";
+    case "reconciled":
+      return " (git diff cross-checked against the agent's transcript)";
+    case "claimed_only":
+      return " - no git evidence for this change set, so nothing could be confirmed against disk. This CANNOT BE A PASS.";
+  }
+}
+
 function bullet(lines: string[]): string {
   return lines.length ? lines.map((l) => `  - ${l}`).join("\n") : "  (none)";
 }
@@ -66,6 +84,7 @@ export function formatVerdict(verdict: Verdict): string {
         : "PASS - change stayed inside its contract";
   out.push(`VERDICT: ${headline}`);
   out.push(`contract ${verdict.contract_id}   base ${verdict.base_sha.slice(0, 8)} -> head ${verdict.head_sha.slice(0, 8)}`);
+  out.push(`EVIDENCE BASIS: ${verdict.evidence_basis}${basisNote(verdict.evidence_basis)}`);
   out.push("");
 
   out.push(`FORGOTTEN (${verdict.forgotten.length}) - a proven caller that was obliged to change and did not.`);
@@ -97,6 +116,50 @@ export function formatVerdict(verdict: Verdict): string {
     ),
   );
   out.push("");
+
+  // Claim-derived sections appear only when a transcript was supplied, so a
+  // git-only verdict renders exactly as it did before the Curveball.
+  if (verdict.out_of_bounds_by_claim.length > 0) {
+    out.push(
+      `OUT OF BOUNDS BY CLAIM (${verdict.out_of_bounds_by_claim.length}) - the agent's own transcript reports editing outside the radius. [CLAIMED, but the radius is deterministic]`,
+    );
+    out.push(
+      bullet(
+        verdict.out_of_bounds_by_claim.map(
+          (o) => `${o.path}\n    ${o.note}\n    evidence: ${o.provenance.command}`,
+        ),
+      ),
+    );
+    out.push("");
+  }
+
+  if (verdict.unverified_claims.length > 0) {
+    out.push(
+      `UNVERIFIED CLAIMS (${verdict.unverified_claims.length}) - claimed in the transcript, absent from the diff. [CLAIMED] Warns only, never fails.`,
+    );
+    out.push(
+      bullet(
+        verdict.unverified_claims.map(
+          (c) => `${c.path}\n    ${c.note}\n    evidence: ${c.provenance.command}`,
+        ),
+      ),
+    );
+    out.push("");
+  }
+
+  if (verdict.unclaimed_changes.length > 0) {
+    out.push(
+      `UNCLAIMED CHANGES (${verdict.unclaimed_changes.length}) - changed on disk, never mentioned in the transcript. [CLAIMED] Warns only, never fails.`,
+    );
+    out.push(
+      bullet(
+        verdict.unclaimed_changes.map(
+          (c) => `${c.path}\n    ${c.note}\n    evidence: ${c.provenance.command}`,
+        ),
+      ),
+    );
+    out.push("");
+  }
 
   out.push(`IN BOUNDS (${verdict.in_bounds.length}):`);
   out.push(bullet(verdict.in_bounds));

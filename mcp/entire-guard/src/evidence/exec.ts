@@ -66,3 +66,37 @@ export function parseJson<T>(result: CommandResult): T | undefined {
     }
   }
 }
+
+export type JsonlRecord = { line: number; value: unknown };
+export type JsonlFailure = { line: number; text: string; error: string };
+export type JsonlParse = { records: JsonlRecord[]; failures: JsonlFailure[] };
+
+/**
+ * Parse JSONL with per-line error isolation.
+ *
+ * A transcript can be truncated mid-write, so a single unparseable line must
+ * never discard the records that did parse. Failures are returned, never
+ * thrown, so the caller can disclose them in degraded[] rather than pretend
+ * the session was shorter than it was.
+ */
+export function parseJsonl(text: string): JsonlParse {
+  const records: JsonlRecord[] = [];
+  const failures: JsonlFailure[] = [];
+
+  const lines = text.split(/\r?\n/);
+  for (let i = 0; i < lines.length; i += 1) {
+    const raw = lines[i] ?? "";
+    if (raw.trim() === "") continue;
+    try {
+      records.push({ line: i + 1, value: JSON.parse(raw) as unknown });
+    } catch (err) {
+      failures.push({
+        line: i + 1,
+        text: raw.length > 200 ? raw.slice(0, 200) + "..." : raw,
+        error: err instanceof Error ? err.message : String(err),
+      });
+    }
+  }
+
+  return { records, failures };
+}

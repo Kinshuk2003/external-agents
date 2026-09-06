@@ -16,8 +16,14 @@ function usage(): string {
   return [
     "entire-guard - hold a coding agent to the blast radius it was given",
     "",
-    "  entire-guard propose <symbol|file:line> [--depth 1|2] [--repo PATH] [--allow-dirty]",
-    "  entire-guard verify  [contract_id] [--repo PATH] [--json]",
+    "  entire-guard propose <symbol|file:line> [--depth 1|2] [--repo PATH] [--allow-dirty] [--session FILE]",
+    "  entire-guard verify  [contract_id] [--repo PATH] [--json] [--session FILE]",
+    "",
+    "  --session FILE   An agent session transcript (JSONL). Both the Entire",
+    "                   external-agent protocol format and the newer event",
+    "                   envelope format are read; the format is detected, never",
+    "                   guessed. Transcript evidence is CLAIMED, so it can only",
+    "                   add findings -- it never discharges an obligation.",
     "",
     "Exit codes: 0 PASS, 1 WARN, 2 FAIL, 3 error.",
   ].join("\n");
@@ -46,6 +52,7 @@ async function main(): Promise<number> {
       repo,
       depth,
       allow_dirty: argv.includes("--allow-dirty"),
+      session: flagValue(argv, "--session"),
     });
     process.stdout.write(formatContract(contract, file) + "\n");
     return 0;
@@ -53,7 +60,11 @@ async function main(): Promise<number> {
 
   if (command === "verify") {
     const maybeId = argv[1] && !argv[1].startsWith("--") ? argv[1] : undefined;
-    const verdict = await verify({ contract_id: maybeId, repo });
+    const verdict = await verify({
+      contract_id: maybeId,
+      repo,
+      session: flagValue(argv, "--session"),
+    });
     if (argv.includes("--json")) {
       process.stdout.write(JSON.stringify(verdict, null, 2) + "\n");
     } else {

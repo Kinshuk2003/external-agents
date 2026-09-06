@@ -11,6 +11,8 @@ import { loadContract, saveContract } from "./contract/store.js";
 import { knownTraps } from "./evidence/checkpoints.js";
 import { changedSince, dirtyFiles, headSha, repoRoot } from "./evidence/git.js";
 import { impact, semanticDiff } from "./evidence/graph.js";
+import { loadSession } from "./evidence/session/index.js";
+import { trapsFromSession } from "./evidence/session/traps.js";
 import { DEFAULT_POLICY, type ChangeContract, type Policy, type Verdict } from "./types.js";
 
 export type ProposeArgs = {
@@ -19,6 +21,12 @@ export type ProposeArgs = {
   depth?: 1 | 2;
   /** Escape hatch for a tree that is already dirty on purpose. */
   allow_dirty?: boolean;
+  /**
+   * Path to an agent session transcript. Its checkpoint events contribute
+   * open questions as known traps, alongside the Entire CLI checkpoint path.
+   * Optional: omitting it leaves propose_change behaving exactly as before.
+   */
+  session?: string;
 };
 
 export type ProposeResult = { contract: ChangeContract; file: string };
@@ -91,30 +99,92 @@ export async function propose(args: ProposeArgs): Promise<ProposeResult> {
   contract.known_traps = traps.traps;
   contract.degraded.push(...traps.degraded);
 
+  // A transcript is a second source of unresolved work, producing the same
+  // KnownTrap type as the CLI path. Where checkpoint prose has to be keyword
+  // matched, a transcript's open_questions[] are declared as unresolved by the
+  // agent itself -- structured rather than scraped.
+  if (args.session) {
+    const evidence = await loadSession(args.session);
+    if (evidence.session) {
+      const fromSession = trapsFromSession(evidence.session);
+      contract.known_traps.push(...fromSession.traps);
+      contract.degraded.push(...fromSession.degraded);
+    } else {
+      contract.degraded.push(...evidence.degraded);
+    }
+  }
+
   const file = await saveContract(root, contract);
   return { contract, file };
 }
 
-export type VerifyArgs = { contract_id?: string; repo?: string };
+export type VerifyArgs = {
+  contract_id?: string;
+  repo?: string;
+  /**
+   * Path to the agent's session transcript. Optional. Supplying it adds claim
+   * reconciliation on top of the deterministic diff; omitting it leaves this
+   * function behaving exactly as it did before the Noon Curveball.
+   */
+  session?: string;
+};
 
 export async function verify(args: VerifyArgs): Promise<Verdict> {
   const cwd = args.repo ?? process.cwd();
   const root = await repoRoot(cwd);
   const contract = await loadContract(root, args.contract_id);
 
+  // The agent's own account of what it did. Read first, because whether git
+  // evidence is optional depends on whether we have a second source at all.
+  const sessionEvidence = args.session ? await loadSession(args.session) : undefined;
+
   // Never --head here: verification must see the working tree as it is now.
-  const changed = await changedSince(root, contract.base_sha);
-  const head = await headSha(root);
-  const sem = await semanticDiff(root, contract.base_sha, "HEAD");
+  let changedFiles: string[] = [];
+  let gitUnavailable = false;
+  const degraded: string[] = [];
+  const provenance = [];
+
+  try {
+    const changed = await changedSince(root, contract.base_sha);
+    changedFiles = changed.files;
+    provenance.push(changed.provenance);
+  } catch (err) {
+    // Without a transcript there is nothing to fall back on, so the original
+    // failure stands. With one, the transcript may still describe work this
+    // checkout cannot see -- which is exactly the claimed_only case.
+    if (!sessionEvidence?.session) throw err;
+    gitUnavailable = true;
+    degraded.push(
+      `git could not produce a diff against ${contract.base_sha} ` +
+        `(${err instanceof Error ? err.message : String(err)}); ` +
+        "the transcript is the only witness to this change set",
+    );
+  }
+
+  const head = gitUnavailable ? contract.base_sha : await headSha(root);
+  const sem = gitUnavailable
+    ? undefined
+    : await semanticDiff(root, contract.base_sha, "HEAD");
+
+  if (sem) {
+    degraded.push(...sem.degraded);
+    provenance.push(sem.provenance);
+  }
+  if (sessionEvidence) {
+    provenance.push(sessionEvidence.provenance);
+    if (!sessionEvidence.session) degraded.push(...sessionEvidence.degraded);
+  }
 
   return adjudicate(
     contract,
     {
-      changed_files: changed.files,
-      semantic_changes: sem.data,
+      changed_files: changedFiles,
+      semantic_changes: sem?.data,
       head_sha: head,
-      degraded: sem.degraded,
-      provenance: [changed.provenance, sem.provenance],
+      degraded,
+      provenance,
+      ...(sessionEvidence?.session ? { session: sessionEvidence.session } : {}),
+      ...(gitUnavailable ? { git_unavailable: true } : {}),
     },
     contract.policy,
   );
