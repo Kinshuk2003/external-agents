@@ -7,12 +7,14 @@
 | GitHub fork | https://github.com/Kinshuk2003/external-agents |
 | Pull request | https://github.com/Kinshuk2003/external-agents/pull/1 (branch `feat/entire-guard`) |
 | Entire mirror | `entire://aws-ap-south-1.entire.io/gh/kinshuk2003/external-agents` |
-| Final commit SHA | the tip of `feat/entire-guard` — `git rev-parse feat/entire-guard` |
+| Final commit | the tip of `main`, reachable as `git rev-parse main`. The last work commit carrying a checkpoint is `a14ce0f` |
 | Checkpoints | `362b7ddbefdc` · `2463e7d51ae5` · `0b7f487b6e75` · `5ce69064166d` · final (see the checkpoint table below) |
 | Databricks | not opted in |
 
-> `main` is a protected branch on the fork, so all code is delivered on `feat/entire-guard` via
-> PR #1. Entire Checkpoints sync independently on the `entire/checkpoints/v1` ref.
+> `feat/entire-guard` was merged into `main` through PR #1 with a **merge commit**, deliberately
+> not a squash: all 10 Entire Checkpoints are bound to specific commit SHAs, and rewriting history
+> would have detached every one of them. Checkpoints sync independently on the
+> `entire/checkpoints/v1` ref.
 
 ## One-sentence summary
 
@@ -469,6 +471,23 @@ node mcp/entire-guard/dist/cli.js verify
 ```
 
 Exit codes: `0` PASS, `1` WARN, `2` FAIL, `3` error — so it drops straight into a CI check.
+
+## Databricks use, data sources and limitations
+
+**Not applicable.** This team did not opt into the Best Use of Databricks category. No Databricks
+workspace, app, endpoint or dataset forms any part of this product.
+
+Stated explicitly rather than omitted, so the row can be checked rather than inferred.
+
+On data provenance for what *is* here: the product reads only local Git history, local Entire
+Checkpoints, local Entire Graph output and agent transcript files supplied by the caller. It makes
+**no network calls** — `entire graph capabilities --json` reports every value under
+`features_requiring_network_access` as `false`, and trap extraction is keyword-based rather than
+model-based, so the critical path is fully offline and deterministic. The four `session-*.jsonl`
+fixtures under `mcp/entire-guard/test/fixtures/` are **synthetic**, written for these tests;
+`track-3-agent-session.jsonl` is the Curveball fixture supplied by the organisers, committed
+unmodified. No customer, personal or confidential data is present in the repository, the
+checkpoints or this document.
 
 ## Known limitations and next steps
 
