@@ -1,0 +1,72 @@
+@/c:/Users/kinsh/dev/external-agents/12_00 _ The Noon Curveball is live.pdf 
+
+@/c:/Users/kinsh/dev/external-agents/BTW Buildathon 2026 - Participant Guide.pdf 
+
+@/c:/Users/kinsh/dev/external-agents/BUILD-GUIDE.md 
+
+@/c:/Users/kinsh/dev/external-agents/BUILDATHON.md 
+
+@/c:/Users/kinsh/dev/external-agents/DEMO-RUNBOOK.md 
+
+@/c:/Users/kinsh/dev/external-agents/DESIGN.md 
+
+@/c:/Users/kinsh/dev/external-agents/track-3-agent-session.jsonl 
+
+See I am building as part of the track 3 in the bengaluru tech week buildathon, I have already build the idea which we planned before the 12:00 noon curve ball and also made the checkpoint for it on entire.
+
+Now we need to start planning and design and execution changes which needs to be done after the curve ball for the solution/idea. 
+
+
+I want you to start the planning and brainstroming for it now, so that we decide and work to complete the challenges/constraint given as curve ball to us.
+
+
+I am also attaching some closing notes from the last claude session for you as reference here
+
+The assumption the curveball invalidates
+Worth having crisp for your submission:
+
+entire-guard assumed the only way to learn what the agent actually changed is git diff --name-only against a local working tree. An agent transcript reports its own edits — and may describe work this machine cannot see in git at all.
+
+What to paste into your fresh session
+
+Reconstruct this project from Entire checkpoint 0b7f487b6e75
+(and 362b7ddbefdc for original intent) before reading any code:
+  entire checkpoint explain 0b7f487b6e75 --full
+
+Then run Graph impact BEFORE editing anything:
+  entire graph impact --symbol changedSince --repo . --depth 2 --profile full --format json
+  entire graph impact --symbol knownTraps  --repo . --depth 2 --profile full --format json
+  entire graph impact --symbol parseJson   --repo . --depth 2 --profile full --format json
+
+Then implement the Track 3 curveball. Fixture:
+mcp/entire-guard/test/fixtures/track-3-agent-session.jsonl
+Run impact before editing — the card is explicit that graph use after implementation scores in the partial band.
+
+⚠️ One safety point I put in the checkpoint and would repeat out loud: a partial transcript must never make a verdict more permissive. Fewer parsed file_changed events means fewer detected edits, which could turn a FAIL into a false PASS. Incomplete input has to land in degraded[] and fail safe.
+
+You're clear to close this session.
+
+
+One caveat worth knowing before you go
+Look at that list — most checkpoints are titled "See i see you committed and pushed @/c:/Users/...". Entire titles checkpoints from the user prompt that was active, not from the commit message. So the titles are noisy and won't help a judge scanning the list.
+
+The substance is intact — it's all in the commit bodies, which explain --full shows. But when you link checkpoints in your submission, link by ID and say what each proves, because the titles won't tell that story:
+
+Link this	What it proves
+362b7ddbefdc	Initial understanding and intended architecture
+0b7f487b6e75	Last stable state before the Curveball
+(next session)	Response to the Curveball
+(next session)	Final implementation and verification
+You're clear to close this session. Your first move in the new one is entire checkpoint explain 0b7f487b6e75 --full, then the three graph impact commands — before touching any code.
+
+---
+
+Ok Now I want you to build or execute whatever needs to be executed after the curveball drop and based on the updated design which we did after the curve ball, do not commit anything on it own first let me know and then i will review and then we will commit and checkpoint it
+
+---
+
+ok now please do the checkpointing the claude session for the entire. and make sure to do that for only those files which we actually need to share as part of the final submission only if anything extra is there please do a clean up
+
+---
+
+see on entire platform when we are doing checkpointing after the curve ball it should come as in a separate session not just in the previous session
