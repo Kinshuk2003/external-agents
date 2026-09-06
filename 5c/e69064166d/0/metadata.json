@@ -1,0 +1,180 @@
+{
+  "cli_version": "0.10.5",
+  "checkpoint_id": "5ce69064166d",
+  "session_id": "cbb577fd-8830-4eb8-a8d9-a59ac3ab7192",
+  "strategy": "manual-commit",
+  "created_at": "2026-09-06T08:42:24.1302589Z",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "save_step_count": 2,
+  "files_touched": [
+    "BUILDATHON.md",
+    "evidence/curveball/00-search.json",
+    "evidence/curveball/01-impact-changedSince.json",
+    "evidence/curveball/02-impact-parseJson.json",
+    "evidence/curveball/03-impact-knownTraps.json",
+    "evidence/curveball/04-impact-verify.json",
+    "evidence/curveball/05-impact-adjudicate.json",
+    "evidence/curveball/README.md",
+    "mcp/entire-guard/README.md",
+    "mcp/entire-guard/src/adjudicate/adjudicate.ts",
+    "mcp/entire-guard/src/adjudicate/claims.test.ts",
+    "mcp/entire-guard/src/cli.ts",
+    "mcp/entire-guard/src/core.ts",
+    "mcp/entire-guard/src/evidence/exec.test.ts",
+    "mcp/entire-guard/src/evidence/exec.ts",
+    "mcp/entire-guard/src/evidence/session/detect.ts",
+    "mcp/entire-guard/src/evidence/session/index.ts",
+    "mcp/entire-guard/src/evidence/session/load.test.ts",
+    "mcp/entire-guard/src/evidence/session/normalize.ts",
+    "mcp/entire-guard/src/evidence/session/readers/acme-events.ts",
+    "mcp/entire-guard/src/evidence/session/readers/entire-protocol.ts",
+    "mcp/entire-guard/src/evidence/session/session.test.ts",
+    "mcp/entire-guard/src/evidence/session/traps.test.ts",
+    "mcp/entire-guard/src/evidence/session/traps.ts",
+    "mcp/entire-guard/src/format-claims.test.ts",
+    "mcp/entire-guard/src/format.ts",
+    "mcp/entire-guard/src/server.ts",
+    "mcp/entire-guard/src/types.ts",
+    "mcp/entire-guard/test/fixtures/session-entire-protocol.jsonl",
+    "mcp/entire-guard/test/fixtures/session-incomplete.jsonl",
+    "mcp/entire-guard/test/fixtures/session-original-unknown-events.jsonl",
+    "mcp/entire-guard/test/fixtures/session-unknown-events.jsonl"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5",
+  "turn_id": "036400f838b2",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 218,
+    "cache_creation_tokens": 292652,
+    "cache_read_tokens": 22965503,
+    "output_tokens": 145003,
+    "api_call_count": 109
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01L9vQ9ijMnUA8Hnv6r2ZWg7",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:brainstorming"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "036400f838b2",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 23,
+        "end": 24,
+        "entry_ids": [
+          "d91d5bd9-c042-4599-ac49-d076ed8c6ed7"
+        ],
+        "tool_use_id": "toolu_01L9vQ9ijMnUA8Hnv6r2ZWg7"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01L9vQ9ijMnUA8Hnv6r2ZWg7"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:brainstorming",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01FTK3iBKbadLxVf8E8MB5aj",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "superpowers:test-driven-development"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "036400f838b2",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 256,
+        "end": 257,
+        "entry_ids": [
+          "66e996cf-c168-4632-a4df-ecc2b8365ce6"
+        ],
+        "tool_use_id": "toolu_01FTK3iBKbadLxVf8E8MB5aj"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01FTK3iBKbadLxVf8E8MB5aj"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: superpowers:test-driven-development",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 2
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-09-06T08:42:23.9642056Z",
+    "agent_lines": 2224,
+    "agent_removed": 40,
+    "human_added": 194,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 2418,
+    "total_lines_changed": 2458,
+    "agent_percentage": 92.10740439381611,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 520,
+      "user_lines_removed": 503,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        "agents/entire-agent-amp/scripts/verify-amp.sh": 118,
+        "agents/entire-agent-goose/scripts/verify-goose.sh": 146,
+        "agents/entire-agent-kilo/scripts/verify-kilo.sh": 18,
+        "mise-tasks/build": 85,
+        "mise-tasks/lint/_default": 24,
+        "mise-tasks/lint/licenses": 39,
+        "mise-tasks/test": 73,
+        "track-3-agent-session.jsonl": 17
+      },
+      "user_removed_per_file": {
+        "agents/entire-agent-amp/scripts/verify-amp.sh": 118,
+        "agents/entire-agent-goose/scripts/verify-goose.sh": 146,
+        "agents/entire-agent-kilo/scripts/verify-kilo.sh": 18,
+        "mise-tasks/build": 85,
+        "mise-tasks/lint/_default": 24,
+        "mise-tasks/lint/licenses": 39,
+        "mise-tasks/test": 73
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 732,
+      "agent_lines_removed": 515
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 97,
+      "user_lines_removed": 0,
+      "agent_lines_added": 2841,
+      "agent_lines_removed": 543,
+      "user_added_per_file": {
+        "evidence/curveball/README.md": 97
+      }
+    }
+  ]
+}

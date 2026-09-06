@@ -1,0 +1,57 @@
+{
+  "cli_version": "0.10.5",
+  "checkpoint_id": "5ce69064166d",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "BUILDATHON.md",
+    "evidence/curveball/00-search.json",
+    "evidence/curveball/01-impact-changedSince.json",
+    "evidence/curveball/02-impact-parseJson.json",
+    "evidence/curveball/03-impact-knownTraps.json",
+    "evidence/curveball/04-impact-verify.json",
+    "evidence/curveball/05-impact-adjudicate.json",
+    "evidence/curveball/README.md",
+    "mcp/entire-guard/README.md",
+    "mcp/entire-guard/src/adjudicate/adjudicate.ts",
+    "mcp/entire-guard/src/adjudicate/claims.test.ts",
+    "mcp/entire-guard/src/cli.ts",
+    "mcp/entire-guard/src/core.ts",
+    "mcp/entire-guard/src/evidence/exec.test.ts",
+    "mcp/entire-guard/src/evidence/exec.ts",
+    "mcp/entire-guard/src/evidence/session/detect.ts",
+    "mcp/entire-guard/src/evidence/session/index.ts",
+    "mcp/entire-guard/src/evidence/session/load.test.ts",
+    "mcp/entire-guard/src/evidence/session/normalize.ts",
+    "mcp/entire-guard/src/evidence/session/readers/acme-events.ts",
+    "mcp/entire-guard/src/evidence/session/readers/entire-protocol.ts",
+    "mcp/entire-guard/src/evidence/session/session.test.ts",
+    "mcp/entire-guard/src/evidence/session/traps.test.ts",
+    "mcp/entire-guard/src/evidence/session/traps.ts",
+    "mcp/entire-guard/src/format-claims.test.ts",
+    "mcp/entire-guard/src/format.ts",
+    "mcp/entire-guard/src/server.ts",
+    "mcp/entire-guard/src/types.ts",
+    "mcp/entire-guard/test/fixtures/session-entire-protocol.jsonl",
+    "mcp/entire-guard/test/fixtures/session-incomplete.jsonl",
+    "mcp/entire-guard/test/fixtures/session-original-unknown-events.jsonl",
+    "mcp/entire-guard/test/fixtures/session-unknown-events.jsonl"
+  ],
+  "sessions": [
+    {
+      "metadata": "/5c/e69064166d/0/metadata.json",
+      "transcript": "/5c/e69064166d/0/full.jsonl",
+      "compact_transcript": "/5c/e69064166d/0/transcript.jsonl",
+      "content_hash": "/5c/e69064166d/0/content_hash.txt",
+      "prompt": "/5c/e69064166d/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 218,
+    "cache_creation_tokens": 292652,
+    "cache_read_tokens": 22965503,
+    "output_tokens": 145003,
+    "api_call_count": 109
+  }
+}
