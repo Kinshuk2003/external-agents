@@ -1,0 +1,6 @@
+See i see you committed and pushed  @/c:/Users/kinsh/dev/external-agents/BUILD-GUIDE.md @/c:/Users/kinsh/dev/external-agents/BTW Buildathon 2026 - Participant Guide.pdf 
+
+and @/c:/Users/kinsh/dev/external-agents/DESIGN.md 
+
+
+these 3 documents as well we do not have to push these as these are only for helping me to build and it needs to be present only in my local and need not to be pushed to the remote
