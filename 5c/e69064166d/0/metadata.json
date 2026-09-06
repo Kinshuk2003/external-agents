@@ -120,6 +120,77 @@
   "session_metrics": {
     "turn_count": 2
   },
+  "summary": {
+    "intent": "Respond to the Track 3 Buildathon 'Noon Curveball' constraint, which invalidated the assumption that git diff is the sole record of agent changes, by adding agent session transcript parsing as a second evidence source to entire-guard.",
+    "outcome": "Designed and implemented a full session transcript subsystem (src/evidence/session/) supporting two transcript formats, with claim reconciliation, safety invariants, and 82 passing tests (33 pre-existing + 49 new); committed 32 files and triggered an Entire checkpoint.",
+    "learnings": {
+      "repo": [
+        "DESIGN.md is gitignored — it is a local planning document, not part of the deliverable; submission narrative goes in BUILDATHON.md and evidence/ instead",
+        "Entire titles checkpoints from the active user prompt, not commit messages — link checkpoints by ID in submissions, not by title",
+        "The graph impact runs must be captured BEFORE any edit; the card explicitly scores graph use after implementation in the partial band only",
+        "adjudicate() had 5 direct callers, 3 of which were test files — all new fields had to be additive/optional so no pre-existing test required modification",
+        "changedSince's only caller is core.ts:106 inside verify — the git adapter needed no change; the new source is added beside it, not inside it",
+        "parseJson has 2 direct callers (knownTraps, impact) — a sibling parseJsonl() was added rather than modifying parseJson, leaving both callers undisturbed",
+        "The root-level track-3-agent-session.jsonl was a duplicate of test/fixtures/ copy — deleted before commit to avoid the exact drift the product detects",
+        "evidence/README.md appeared as a depth-1 caller of adjudicate in graph output — prose matching a symbol name, not a code call site; requires manual verification"
+      ],
+      "code": [
+        {
+          "path": "mcp/entire-guard/src/core.ts",
+          "line": 100,
+          "end_line": 121,
+          "finding": "verify() is the sole direct caller of changedSince; new session evidence is wired here beside the git adapter, not inside it"
+        },
+        {
+          "path": "mcp/entire-guard/src/evidence/exec.ts",
+          "finding": "parseJsonl() added as a sibling to parseJson(); regex literal for line splitting must be written as a RegExp constructor or escape-safe literal to avoid shell/heredoc interpretation issues"
+        },
+        {
+          "path": "mcp/entire-guard/src/evidence/session/detect.ts",
+          "finding": "Format detection sniffs discriminator field: integer 'type' → entire-protocol, string 'event' → acme-events; ambiguous or absent discriminator goes to degraded[], never guessed"
+        },
+        {
+          "path": "mcp/entire-guard/src/evidence/session/readers/acme-events.ts",
+          "finding": "AcmeCode 1.4.2 format: string-tagged envelope with 10 event kinds, file_changed streamed per edit with change: modified|created|deleted, checkpoint_created carries open_questions[]"
+        },
+        {
+          "path": "mcp/entire-guard/src/evidence/session/readers/entire-protocol.ts",
+          "finding": "Original entire-protocol format: integer EventJSON.type enum, AgentSessionJSON with batch modified_files[]/new_files[]/deleted_files[], plus tool_input.file_path on tool events"
+        },
+        {
+          "path": "mcp/entire-guard/src/adjudicate/adjudicate.ts",
+          "finding": "Three new finding classes: out_of_bounds_by_claim (FAIL), unverified_claims (WARN), unclaimed_changes (WARN); evidence_basis field: deterministic|reconciled|claimed_only; claimed_only is floored at WARN, can never be PASS"
+        },
+        {
+          "path": "mcp/entire-guard/src/format.ts",
+          "finding": "No-session verify gains exactly one 'EVIDENCE BASIS' line — described as behaviourally unchanged but not byte-identical; the 'byte-identical' claim was an overclaim that was corrected"
+        }
+      ],
+      "workflow": [
+        "TDD discipline enforced strictly: loadSession was written before its test, caught, deleted, then test-driven from scratch — documented in DESIGN.md §17.3 rather than quietly fixed",
+        "A doc comment containing agents/*/internal/... closed a block comment early in TypeScript, causing a parse error — agent protocol path patterns must be in line comments or escaped in block comments",
+        "Heredoc injection of multi-line content into bash via Bash tool is unreliable for complex content; Write to a scratchpad file then apply via a Python patch script was the reliable pattern used throughout",
+        "Graph impact runs produce evidence artifacts (JSON) that should be saved to evidence/ immediately — they are referenced by judges and the card scores their pre-edit capture",
+        "Fixture design: a single fixture mixing both format discriminators (string event + integer type:99) is ambiguous by the detection rule and correctly refused — split into per-format fixtures instead",
+        "Entire checkpoint titles come from the user prompt text, not commit messages — commit message bodies (shown by entire checkpoint explain --full) carry the real substance",
+        "MCP server smoke test via stdio handshake (initialize → capabilities) should be run after wiring changes to verify no stdout pollution was introduced"
+      ]
+    },
+    "friction": [
+      "Heredoc syntax for multi-line content in bash tool calls consistently failed — had to adopt a Write-to-scratchpad + apply-via-Python-script pattern as a workaround",
+      "A doc comment path pattern (agents/*/internal/protocol/types.go) closed a TypeScript block comment prematurely, causing a parse error mid-implementation",
+      "DESIGN.md being gitignored was discovered only after writing §16 — required restructuring the submission to make BUILDATHON.md and evidence/ self-contained",
+      "graph impact output listed evidence/README.md as a depth-1 caller of adjudicate due to prose matching the symbol name — required manual source verification to distinguish from real call sites",
+      "The mixed-format unknown-events fixture (intended by §16 plan) was impossible to implement because the detection rule correctly refused it — required splitting into two fixtures and updating the plan"
+    ],
+    "open_items": [
+      "BUILDATHON.md checkpoint table rows 3 and 4 still say 'pending' — IDs only exist after commit and need to be backfilled",
+      "The claimed_only evidence_basis floor (cannot be PASS) is enforced by type and property test but the live demo path exercises it against a repo-mismatch scenario, not a clean in-repo scenario — a cleaner demo contract would make the safety claim easier to demonstrate to judges",
+      "Entire session checkpoint IDs for 'Response to the Curveball' and 'Final implementation and verification' need to be linked by ID in the submission with descriptions of what each proves",
+      "The duplicate track-3-agent-session.jsonl at repo root was deleted but its origin (judge attachment vs. local copy) was not documented — worth noting in submission that the canonical fixture is test/fixtures/track-3-agent-session.jsonl",
+      "82 passing tests do not include an integration test against a real in-repo agent run with a known sha — all session tests use fixtures with repo-mismatch warnings"
+    ]
+  },
   "initial_attribution": {
     "calculated_at": "2026-09-06T08:42:23.9642056Z",
     "agent_lines": 2224,
