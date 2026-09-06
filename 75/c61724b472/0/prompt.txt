@@ -74,3 +74,21 @@ see on entire platform when we are doing checkpointing after the curve ball it s
 ---
 
 please commit  this to the github please please check the open pr for it
+
+---
+
+Can you check the participant guide and see are we fullfilling all the requirements for the submission and judging
+
+---
+
+<task-notification>
+<task-id>bg79com7j</task-id>
+<tool-use-id>toolu_01CC38ZuhYoHTuWiQ7ZQvsCJ</tool-use-id>
+<output-file>C:\Users\kinsh\AppData\Local\Temp\claude\c--Users-kinsh-dev-external-agents\cbb577fd-8830-4eb8-a8d9-a59ac3ab7192\tasks\bg79com7j.output</output-file>
+<status>completed</status>
+<summary>Background command "Verify clean checkout builds and tests" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+Also can you review the Buildathon.md file which is the final documentation for the submssion, If there is any changes needed in it. Also it should be self sufficient document with to reference to any other document and stuff for the judging team
