@@ -9,3 +9,8 @@ node_modules/
 # entire-guard runtime contract store
 .entire-guard/
 BTW Buildathon 2026 - Participant Guide.pdf
+
+# Local build-planning documents - not part of the deliverable
+DESIGN.md
+BUILD-GUIDE.md
+mcp/entire-guard/docs/HANDOFF.md
