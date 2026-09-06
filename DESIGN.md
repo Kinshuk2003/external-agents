@@ -296,3 +296,75 @@ Keep policy (`depth`, `exclude_tests`, `fail_on`) in **one config object from th
 2. CI entrypoint posting the verdict as a PR check.
 3. Learn per-repo depth policy from historical `FILE_CHANGES_WITH` data.
 4. Cross-repo contracts via `entire api`.
+
+---
+
+## 14. Build log — what implementation changed about the design
+
+*Appended 11:15 IST, immediately before the pre-noon freeze. Everything above this line was
+written before code existed; everything below was learned by running it.*
+
+### 14.1 Status: the narrow end-to-end slice is complete and runnable
+
+| Component | State | Evidence |
+|---|---|---|
+| `evidence/exec`, `evidence/git`, `evidence/graph`, `evidence/checkpoints` | done | `propose` runs against this repo |
+| `contract/build`, `contract/store` | done | real contract written to `.entire-guard/contracts/` |
+| `adjudicate` (pure) | done | 7 unit tests |
+| `contract/build` parse tests vs **real** captured graph JSON | done | 7 tests against `test/fixtures/impact.json` |
+| MCP server, both tools | done | JSON-RPC `initialize` + `tools/list` verified by hand |
+| CLI entrypoint (CI + demo fallback) | done | exit codes 0/1/2/3 |
+| Output formatting | done | provenance command printed under every finding |
+
+`npm test` — **14 passing, 0 failing.**
+
+### 14.2 Six corrections the probe and the build forced on §4 and §6
+
+These overrule the pre-implementation assumptions above.
+
+1. **`entire checkpoint list` reported `0` while `entire status` reported `1 checkpoint not yet
+   on origin`.** Pending checkpoints are not shown by the default listing. The mechanism was
+   working; the verification command was the wrong one. Had we trusted `list` alone we would
+   have "discovered" a non-existent bug and rebuilt a working feature.
+
+2. **Impact buckets are `{ total, direct?, in|out, entries[] }`**, and each entry is
+   `{ endpoint, relation, direction, depth, call_site? , detail? }` — not the flat arrays §6
+   assumed. `endpoint` carries `file_path`, `start_line`, `kind`, `language`, `qualified_name`.
+
+3. **External symbols appear as endpoints with `external: true` and no `file_path`**
+   (e.g. `flag.NewFlagSet`). They must be filtered out or the blast radius fills with
+   unreachable standard-library entries. Tested.
+
+4. **Depth-1 callers are frequently in the same file as the definition.** Adjudication is
+   path-level, so such an obligation is satisfied the instant the definition file is edited —
+   it can never fire, and it inflated the first real contract to 13 meaningless rows. Callers
+   inside the focus file are now excluded, and remaining callers are grouped one-per-file.
+   This narrowing is what makes a `forgotten` FAIL mean something.
+
+5. **A file can be simultaneously a deterministic caller and a heuristic co-change.** Reporting
+   both showed the same path twice under two different confidences. The stronger deterministic
+   claim now subsumes the weaker heuristic one. Caught by a test, not by reading.
+
+6. **`--head` against a dirty tree returns `W_WORKTREE_SNAPSHOT`**, so `propose` only passes
+   `--head` when the tree is clean, and surfaces the warning in `degraded[]` when it is not.
+
+### 14.3 Additions beyond the original design
+
+- **`drift_candidates`** is now a first-class contract field, not just an `allowed_files`
+  entry. It is the mechanism that surfaces cross-module drift (§4A) — files that move together
+  historically but that nothing structurally links. Heuristic, WARN-only, by construction.
+- **`src/cli.ts`** was built alongside the server rather than deferred. It is both the §10 "must
+  run in CI" hedge (verdict plus exit code, no protocol) and the §10-failure-playbook demo
+  fallback. Cost: ~15 minutes. It removes a single point of failure from the demo.
+- **Silent-truncation detection.** `--max-context-bytes` is raised to 65536 *and* the response
+  length is compared against the budget, because the failure mode is a clipped radius with no
+  error — precisely the claim the product rests on.
+
+### 14.4 Open risks going into the freeze
+
+- `known_traps` is empty on this branch: checkpoint history is young, so the trap path is
+  exercised by unit tests but not yet by a live checkpoint. The degradation message is correct
+  and appears in real output; the happy path is unproven end-to-end.
+- Adjudication is path-level, not hunk-level. Editing a file anywhere satisfies its obligation.
+  Disclosed in the README rather than hidden.
+- The demo's forgotten-caller moment has not been rehearsed against a live edit yet.

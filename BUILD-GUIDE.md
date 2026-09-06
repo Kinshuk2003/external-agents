@@ -283,3 +283,58 @@ Under **why Entire is essential**, use the stateful-interval argument verbatim f
 | Symbol ambiguity everywhere | Use `<file>:<line>` selectors throughout, including in the demo. |
 
 **Rule for the last hour: no new features after 2:00 PM.** Only fixes, docs and evidence.
+
+---
+
+## 11. Live build log
+
+### 11:15 IST — pre-freeze slice COMPLETE, ahead of the 11:45 deadline
+
+Steps 1–5 of §3 are all done, not just the non-negotiable core.
+
+| Step | Planned | Actual |
+|---|---|---|
+| 1 Evidence adapters | ~25 min | done |
+| 2 Contract builder + store | ~20 min | done |
+| 3 Adjudicator + tests | ~30 min | done — **14 tests green**, not 5 |
+| 4 MCP server | ~35 min | done — handshake verified by hand |
+| 5 Output formatting | ~20 min | done — provenance under every finding |
+| *(unplanned)* CLI entrypoint | — | done — the CI hedge and demo fallback |
+
+**Verification actually run (not assumed):**
+
+```bash
+npm test                                   # 14 passing, 0 failing
+node dist/cli.js propose "agents/entire-agent-kiro/internal/protocol/protocol.go:63"
+                                           # real contract, 15 allowed files, written to disk
+printf '...initialize...tools/list...' | node dist/server.js
+                                           # -> serverInfo entire-guard 0.1.0; both tools listed
+```
+
+The MCP handshake was tested by piping JSON-RPC by hand rather than trusting a client, which
+also proves the §3 "no stray console.log on stdout" rule holds.
+
+### Corrections to this guide, learned by running it
+
+- **§2's checkpoint verification is misleading.** `entire checkpoint list` printed
+  `checkpoints 0` while `entire status` printed `1 checkpoint not yet on origin`. Pending
+  checkpoints are not in the default listing. **Use `entire status` to confirm the mechanism**,
+  not `checkpoint list`. Following the guide literally would have sent us debugging a
+  working feature at 10:55.
+- **`node --test dist` does not recurse on Windows.** It treats the directory as a single
+  failing test. Use `node --test "dist/**/*.test.js"` with the glob quoted.
+- **Quoted heredocs in this shell collapse `\` to `\`.** Two source files were silently
+  corrupted this way (a regex and a Windows-path test fixture). Anything containing backslashes
+  must be written with an editor tool, not `cat <<'EOF'`.
+
+### Remaining before the 11:45 freeze
+
+- [x] Commit the stable version
+- [x] Checkpoint 2 — last stable state before the Noon Curveball
+- [ ] Close the agent session at 11:45
+
+### Not started (post-curveball, §6 window)
+
+- `evidence/` directory with the three required graph artifacts
+- `BUILDATHON.md`
+- Live rehearsal of the forgotten-caller demo moment

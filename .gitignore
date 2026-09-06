@@ -5,3 +5,7 @@
 /agents/entire-agent-kiro/entire-agent-kiro
 /agents/entire-agent-kilo/entire-agent-kilo
 bin/
+node_modules/
+# entire-guard runtime contract store
+.entire-guard/
+BTW Buildathon 2026 - Participant Guide.pdf

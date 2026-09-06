@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "entire-guard": {
+      "command": "node",
+      "args": ["./mcp/entire-guard/dist/server.js"]
+    }
+  }
+}
