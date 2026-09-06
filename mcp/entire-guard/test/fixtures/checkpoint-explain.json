@@ -1,0 +1,43 @@
+{
+  "checkpoint_id": "362b7ddbefdc",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "agents/entire-agent-amp/scripts/verify-amp.sh",
+    "agents/entire-agent-goose/scripts/verify-goose.sh",
+    "agents/entire-agent-kilo/scripts/verify-kilo.sh",
+    "agents/entire-agent-kiro/internal/protocol/protocol.go",
+    "mise-tasks/build",
+    "mise-tasks/lint/_default",
+    "mise-tasks/lint/licenses",
+    "mise-tasks/test"
+  ],
+  "session_count": 1,
+  "sessions": [
+    {
+      "index": 0,
+      "session_id": "9afea542-45e1-4b19-ace7-52fa13cf0520",
+      "agent": "Claude Code",
+      "model": "claude-opus-5",
+      "created_at": "2026-09-06T05:59:49.8059908Z",
+      "turn_id": "a0f069955129",
+      "files_touched": [
+        "agents/entire-agent-amp/scripts/verify-amp.sh",
+        "agents/entire-agent-goose/scripts/verify-goose.sh",
+        "agents/entire-agent-kilo/scripts/verify-kilo.sh",
+        "agents/entire-agent-kiro/internal/protocol/protocol.go",
+        "mise-tasks/build",
+        "mise-tasks/lint/_default",
+        "mise-tasks/lint/licenses",
+        "mise-tasks/test"
+      ],
+      "token_usage": {
+        "input_tokens": 138,
+        "output_tokens": 83591,
+        "cache_read_tokens": 8670813,
+        "cache_creation_tokens": 152386
+      }
+    }
+  ]
+}

@@ -1,1 +1,80 @@
-[]
+[
+  {
+    "checkpoint_id": "62de83c27bc5e4cc85ce6297172dca75274ece70",
+    "session_id": "9afea542-45e1-4b19-ace7-52fa13cf0520",
+    "date": "2026-09-06T11:32:32+05:30",
+    "message": "carry forward: uncommitted session files"
+  },
+  {
+    "checkpoint_id": "3fffac172a4e",
+    "session_id": "9afea542-45e1-4b19-ace7-52fa13cf0520",
+    "agent": "Claude Code",
+    "date": "2026-09-06T11:32:31+05:30",
+    "message": "fix: rank and cap drift warnings; add end-to-end and drift test layers",
+    "is_logs_only": true,
+    "session_count": 1,
+    "session_ids": [
+      "9afea542-45e1-4b19-ace7-52fa13cf0520"
+    ]
+  },
+  {
+    "checkpoint_id": "362b7ddbefdc",
+    "session_id": "9afea542-45e1-4b19-ace7-52fa13cf0520",
+    "agent": "Claude Code",
+    "date": "2026-09-06T11:29:48+05:30",
+    "message": "checkpoint: initial understanding and intended architecture",
+    "is_logs_only": true,
+    "session_count": 1,
+    "session_ids": [
+      "9afea542-45e1-4b19-ace7-52fa13cf0520"
+    ]
+  },
+  {
+    "checkpoint_id": "3f089be195fb",
+    "session_id": "9afea542-45e1-4b19-ace7-52fa13cf0520",
+    "agent": "Claude Code",
+    "date": "2026-09-06T11:13:35+05:30",
+    "message": "chore: untrack local build-planning documents",
+    "is_logs_only": true,
+    "session_count": 1,
+    "session_ids": [
+      "9afea542-45e1-4b19-ace7-52fa13cf0520"
+    ]
+  },
+  {
+    "checkpoint_id": "e8a82e1c5055",
+    "session_id": "9afea542-45e1-4b19-ace7-52fa13cf0520",
+    "agent": "Claude Code",
+    "date": "2026-09-06T11:12:47+05:30",
+    "message": "chore: untrack local build-planning documents",
+    "is_logs_only": true,
+    "session_count": 1,
+    "session_ids": [
+      "9afea542-45e1-4b19-ace7-52fa13cf0520"
+    ]
+  },
+  {
+    "checkpoint_id": "7a75cbfb943f",
+    "session_id": "9afea542-45e1-4b19-ace7-52fa13cf0520",
+    "agent": "Claude Code",
+    "date": "2026-09-06T11:07:52+05:30",
+    "message": "docs: record rehearsed demo path and the drift-noise defect it exposed",
+    "is_logs_only": true,
+    "session_count": 1,
+    "session_ids": [
+      "9afea542-45e1-4b19-ace7-52fa13cf0520"
+    ]
+  },
+  {
+    "checkpoint_id": "2463e7d51ae5",
+    "session_id": "9afea542-45e1-4b19-ace7-52fa13cf0520",
+    "agent": "Claude Code",
+    "date": "2026-09-06T11:06:10+05:30",
+    "message": "checkpoint: last stable state before the Noon Curveball",
+    "is_logs_only": true,
+    "session_count": 1,
+    "session_ids": [
+      "9afea542-45e1-4b19-ace7-52fa13cf0520"
+    ]
+  }
+]
