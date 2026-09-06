@@ -1,0 +1,7 @@
+{"type":1,"session_id":"goose-4b2","session_ref":".entire/tmp/goose-4b2.json","timestamp":"2026-09-06T10:00:00.000+05:30"}
+{"type":5,"session_id":"goose-4b2","session_ref":".entire/tmp/goose-4b2.json","timestamp":"2026-09-06T10:00:11.000+05:30","metadata":{"note":"emitted by entire-agent-goose; meaning not documented in this repo"}}
+{"type":99,"session_id":"goose-4b2","session_ref":".entire/tmp/goose-4b2.json","timestamp":"2026-09-06T10:00:19.000+05:30"}
+{"hook_type":"pre-compact","session_id":"goose-4b2","session_ref":".entire/tmp/goose-4b2.json","timestamp":"2026-09-06T10:01:02.000+05:30"}
+{"hook_type":"post-tool-use","session_id":"goose-4b2","session_ref":".entire/tmp/goose-4b2.json","timestamp":"2026-09-06T10:01:40.000+05:30","tool_name":"str_replace_editor","tool_use_id":"tu-9","tool_input":{"file_path":"src/checkout/apply_coupon.ts"}}
+{"type":3,"session_id":"goose-4b2","session_ref":".entire/tmp/goose-4b2.json","timestamp":"2026-09-06T10:02:00.000+05:30"}
+{"session_id":"goose-4b2","agent_name":"goose","repo_path":"/repo/checkout-service","session_ref":".entire/tmp/goose-4b2.json","start_time":"2026-09-06T10:00:00.000+05:30","modified_files":["src/checkout/apply_coupon.ts"],"new_files":[],"deleted_files":[]}

@@ -1,0 +1,21 @@
+{
+  "name": "entire-guard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server that issues a change contract from Entire Graph impact + Checkpoint history, then adjudicates what the agent actually edited.",
+  "bin": { "entire-guard": "./dist/server.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"dist/**/*.test.js\"",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

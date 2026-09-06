@@ -1,0 +1,708 @@
+{
+  "base": "HEAD~1",
+  "head": "HEAD",
+  "files": [
+    {
+      "path": ".claude/settings.json",
+      "status": "M",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "section",
+          "name": "matcher",
+          "before_start_line": 5,
+          "after_start_line": 5,
+          "dependents_count": 20
+        },
+        {
+          "type": "body_changed",
+          "kind": "section",
+          "name": "command",
+          "before_start_line": 9,
+          "after_start_line": 9,
+          "dependents_count": 93
+        },
+        {
+          "type": "renamed",
+          "kind": "section",
+          "name": "SubagentStop",
+          "old_name": "deny",
+          "new_name": "SubagentStop",
+          "old_signature": "json key deny",
+          "new_signature": "json key SubagentStop",
+          "before_start_line": 88,
+          "after_start_line": 67,
+          "dependents_count": 2,
+          "similarity": 1,
+          "reconciliation": "RENAMED"
+        }
+      ]
+    },
+    {
+      "path": ".entire/.gitignore",
+      "status": "M",
+      "language": "Git Ignore",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "document",
+          "name": ".gitignore",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": ".entire/settings.json",
+      "status": "M",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "section",
+          "name": "telemetry",
+          "before_start_line": 4,
+          "after_start_line": 3,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "section",
+          "name": "external_agents",
+          "before_start_line": 2,
+          "after_start_line": 4,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "status": "M",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "module",
+          "name": "AGENTS.md",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "status": "A",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "CLAUDE.md",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/docs/BUILD-GUIDE.md",
+      "status": "A",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "entire-guard-Build-Guide",
+          "new_signature": "markdown heading entire-guard — Build Guide",
+          "after_start_line": 1,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "0.-Rules-that-will-get-you-disqualified-if-ignored",
+          "new_signature": "markdown heading 0. Rules that will get you disqualified if ignored",
+          "after_start_line": 8,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "1.-Pre-9:00-checklist-allowed-now",
+          "new_signature": "markdown heading 1. Pre-9:00 checklist (allowed now)",
+          "after_start_line": 17,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "2.-9:00-9:25-Setup-and-the-probe-that-de-risks-everything",
+          "new_signature": "markdown heading 2. 9:00–9:25 — Setup and the probe that de-risks everything",
+          "after_start_line": 31,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_1_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 35,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "1.-Fork-https://github.com/entireio/external-agents-on-the-web-UI-keep-the-name.-Then:",
+          "new_signature": "markdown heading 1. Fork https://github.com/entireio/external-agents on the web UI, keep the name. Then:",
+          "after_start_line": 36,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "2.-Checkpoints-on",
+          "new_signature": "markdown heading 2. Checkpoints on",
+          "after_start_line": 41,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "3.-Graph-on",
+          "new_signature": "markdown heading 3. Graph on",
+          "after_start_line": 45,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_2_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 48,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "The-15-minute-probe-do-not-skip-this",
+          "new_signature": "markdown heading The 15-minute probe — do not skip this",
+          "after_start_line": 56,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_3_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 60,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "pick-a-real-function-name-from-that-output-then:",
+          "new_signature": "markdown heading pick a real function name from that output, then:",
+          "after_start_line": 66,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_4_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 74,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "How-checkpoints-are-actually-created-read-this-once",
+          "new_signature": "markdown heading How checkpoints are actually created — read this once",
+          "after_start_line": 78,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_5_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 89,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_6_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 92,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "3.-Build-in-this-order",
+          "new_signature": "markdown heading 3. Build in this order",
+          "after_start_line": 101,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Step-1-25-min-Evidence-adapters",
+          "new_signature": "markdown heading Step 1 (~25 min) — Evidence adapters",
+          "after_start_line": 119,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Step-2-20-min-Contract-builder-store",
+          "new_signature": "markdown heading Step 2 (~20 min) — Contract builder + store",
+          "after_start_line": 123,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Step-3-30-min-Adjudicator-its-tests",
+          "new_signature": "markdown heading Step 3 (~30 min) — Adjudicator + its tests",
+          "after_start_line": 127,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Step-4-35-min-MCP-server",
+          "new_signature": "markdown heading Step 4 (~35 min) — MCP server",
+          "after_start_line": 131,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_7_ts",
+          "new_signature": "markdown code fence ts",
+          "after_start_line": 134,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_8_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 156,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_9_json",
+          "new_signature": "markdown code fence json",
+          "after_start_line": 162,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_10_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 165,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Step-5-20-min-Output-formatting",
+          "new_signature": "markdown heading Step 5 (~20 min) — Output formatting",
+          "after_start_line": 169,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "4.-11:45-12:00-Freeze",
+          "new_signature": "markdown heading 4. 11:45–12:00 — Freeze",
+          "after_start_line": 177,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "5.-12:00-1:00-Curveball",
+          "new_signature": "markdown heading 5. 12:00–1:00 — Curveball",
+          "after_start_line": 186,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "6.-1:00-2:30-Finish",
+          "new_signature": "markdown heading 6. 1:00–2:30 — Finish",
+          "after_start_line": 206,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "7.-2:30-2:40-Demo-rehearsal-5-minutes-out-loud-once",
+          "new_signature": "markdown heading 7. 2:30–2:40 — Demo rehearsal (5 minutes, out loud, once)",
+          "after_start_line": 224,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "8.-BUILDATHON.md-skeleton",
+          "new_signature": "markdown heading 8. BUILDATHON.md skeleton",
+          "after_start_line": 240,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_11_markdown",
+          "new_signature": "markdown code fence markdown",
+          "after_start_line": 244,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "entire-guard",
+          "new_signature": "markdown heading entire-guard",
+          "after_start_line": 245,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "One-sentence-summary",
+          "new_signature": "markdown heading One-sentence summary",
+          "after_start_line": 246,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Problem-intended-user-and-why-it-matters",
+          "new_signature": "markdown heading Problem, intended user and why it matters",
+          "after_start_line": 247,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Selected-Entire-track-and-why-Entire-is-essential",
+          "new_signature": "markdown heading Selected Entire track and why Entire is essential",
+          "after_start_line": 248,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Architecture-and-main-workflow",
+          "new_signature": "markdown heading Architecture and main workflow",
+          "after_start_line": 249,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Entire-Graph-findings-and-verification",
+          "new_signature": "markdown heading Entire Graph findings and verification",
+          "after_start_line": 250,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Noon-Curveball:-what-changed-and-how-we-adapted",
+          "new_signature": "markdown heading Noon Curveball: what changed and how we adapted",
+          "after_start_line": 251,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Checkpoint-links-and-what-each-checkpoint-proves",
+          "new_signature": "markdown heading Checkpoint links and what each checkpoint proves",
+          "after_start_line": 252,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Setup-run-and-test-instructions",
+          "new_signature": "markdown heading Setup, run and test instructions",
+          "after_start_line": 253,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Known-limitations-and-next-steps",
+          "new_signature": "markdown heading Known limitations and next steps",
+          "after_start_line": 254,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_12_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 255,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "9.-Final-20-minutes-2:40-PM",
+          "new_signature": "markdown heading 9. Final 20 minutes — 2:40 PM",
+          "after_start_line": 261,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "10.-Failure-playbook",
+          "new_signature": "markdown heading 10. Failure playbook",
+          "after_start_line": 275,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/docs/DESIGN.md",
+      "status": "A",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "entire-guard-Technical-Design",
+          "new_signature": "markdown heading entire-guard — Technical Design",
+          "after_start_line": 1,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "1.-One-sentence-summary",
+          "new_signature": "markdown heading 1. One-sentence summary",
+          "after_start_line": 8,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "2.-Problem-and-intended-user",
+          "new_signature": "markdown heading 2. Problem and intended user",
+          "after_start_line": 12,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "3.-Why-this-is-not-a-CLI-wrapper",
+          "new_signature": "markdown heading 3. Why this is not a CLI wrapper",
+          "after_start_line": 20,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "4.-Verified-environment-facts",
+          "new_signature": "markdown heading 4. Verified environment facts",
+          "after_start_line": 32,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_1_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 46,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_2_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 61,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "4A.-Fork-target:-entireio/external-agents-recon-10:25-IST",
+          "new_signature": "markdown heading 4A. Fork target: `entireio/external-agents` (recon 10:25 IST)",
+          "after_start_line": 88,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "4A.1-What-the-compiler-already-catches-state-this-before-a-judge-does",
+          "new_signature": "markdown heading 4A.1 What the compiler already catches — state this before a judge does",
+          "after_start_line": 114,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "5.-Architecture",
+          "new_signature": "markdown heading 5. Architecture",
+          "after_start_line": 127,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_3_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 129,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_4_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 149,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "6.-Data-model",
+          "new_signature": "markdown heading 6. Data model",
+          "after_start_line": 162,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_5_ts",
+          "new_signature": "markdown code fence ts",
+          "after_start_line": 164,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_6_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 195,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "7.-The-two-tool-contracts",
+          "new_signature": "markdown heading 7. The two tool contracts",
+          "after_start_line": 199,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "propose_change",
+          "new_signature": "markdown heading `propose_change`",
+          "after_start_line": 201,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_7_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 203,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_8_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 205,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "verify_change",
+          "new_signature": "markdown heading `verify_change`",
+          "after_start_line": 216,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_9_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 218,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_10_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 220,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "8.-Error-handling-and-degradation",
+          "new_signature": "markdown heading 8. Error handling and degradation",
+          "after_start_line": 232,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "9.-Testing-strategy",
+          "new_signature": "markdown heading 9. Testing strategy",
+          "after_start_line": 249,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "10.-Curveball-hedges-built-in-from-the-start",
+          "new_signature": "markdown heading 10. Curveball hedges — built in from the start",
+          "after_start_line": 259,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "11.-Rubric-mapping",
+          "new_signature": "markdown heading 11. Rubric mapping",
+          "after_start_line": 274,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "12.-Known-limitations-state-these-out-loud-in-the-demo",
+          "new_signature": "markdown heading 12. Known limitations (state these out loud in the demo)",
+          "after_start_line": 285,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "13.-Next-steps-toward-production",
+          "new_signature": "markdown heading 13. Next steps toward production",
+          "after_start_line": 293,
+          "dependents_count": 0
+        }
+      ]
+    }
+  ]
+}

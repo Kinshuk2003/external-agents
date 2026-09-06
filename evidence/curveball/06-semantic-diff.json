@@ -1,0 +1,1656 @@
+{
+  "base": "28a5705",
+  "head": "HEAD",
+  "files": [
+    {
+      "path": "BUILDATHON.md",
+      "status": "M",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "The-assumption-the-Curveball-invalidated",
+          "new_signature": "markdown heading The assumption the Curveball invalidated",
+          "after_start_line": 149,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "How-the-design-changed",
+          "new_signature": "markdown heading How the design changed",
+          "after_start_line": 167,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Why-the-new-result-is-safe",
+          "new_signature": "markdown heading Why the new result is safe",
+          "after_start_line": 192,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Existing-behaviour-preserved",
+          "new_signature": "markdown heading Existing behaviour preserved",
+          "after_start_line": 210,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "What-the-graph-told-us-not-to-change",
+          "new_signature": "markdown heading What the graph told us *not* to change",
+          "after_start_line": 223,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Tests-33-before-82-after",
+          "new_signature": "markdown heading Tests — 33 before, 82 after",
+          "after_start_line": 234,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Verified-by-running-it-not-only-by-testing-it",
+          "new_signature": "markdown heading Verified by running it, not only by testing it",
+          "after_start_line": 256,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Limitations-this-work-exposed-stated-before-a-reviewer-finds-them",
+          "new_signature": "markdown heading Limitations this work exposed, stated before a reviewer finds them",
+          "after_start_line": 285,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "The-hedges-we-had-and-the-one-class-they-missed",
+          "new_signature": "markdown heading The hedges we had, and the one class they missed",
+          "after_start_line": 305,
+          "dependents_count": 0
+        },
+        {
+          "type": "renamed",
+          "kind": "code_fence",
+          "name": "code_fence_7_bash",
+          "old_name": "code_fence_9_bash",
+          "new_name": "code_fence_7_bash",
+          "old_signature": "markdown code fence bash",
+          "new_signature": "markdown code fence bash",
+          "before_start_line": 200,
+          "after_start_line": 350,
+          "dependents_count": 0,
+          "similarity": 1,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "code_fence",
+          "name": "code_fence_9_json",
+          "old_name": "code_fence_7_json",
+          "new_name": "code_fence_9_json",
+          "old_signature": "markdown code fence json",
+          "new_signature": "markdown code fence json",
+          "before_start_line": 191,
+          "after_start_line": 359,
+          "dependents_count": 0,
+          "similarity": 1,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_11_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 368,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_12_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 374,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "evidence/curveball/00-search.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "evidence/curveball/00-search.json",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "evidence/curveball/01-impact-changedSince.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "evidence/curveball/01-impact-changedSince.json",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "evidence/curveball/02-impact-parseJson.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "evidence/curveball/02-impact-parseJson.json",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "evidence/curveball/03-impact-knownTraps.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "evidence/curveball/03-impact-knownTraps.json",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "evidence/curveball/04-impact-verify.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "evidence/curveball/04-impact-verify.json",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "evidence/curveball/05-impact-adjudicate.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "evidence/curveball/05-impact-adjudicate.json",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "evidence/curveball/README.md",
+      "status": "A",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Noon-Curveball-graph-impact-evidence-captured-before-editing",
+          "new_signature": "markdown heading Noon Curveball — graph impact evidence, captured before editing",
+          "after_start_line": 1,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "0.-Search-locate-the-code-the-Curveball-lands-on-00-search.json",
+          "new_signature": "markdown heading 0. Search — locate the code the Curveball lands on — `00-search.json`",
+          "after_start_line": 13,
+          "dependents_count": 1778
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_1_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 15,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_2_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 18,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "1-5.-Impact-on-the-five-symbols-the-change-could-reach",
+          "new_signature": "markdown heading 1–5. Impact on the five symbols the change could reach",
+          "after_start_line": 26,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_3_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 28,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_4_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 34,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "The-two-conclusions-that-mattered-most",
+          "new_signature": "markdown heading The two conclusions that mattered most",
+          "after_start_line": 47,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Verification-against-source",
+          "new_signature": "markdown heading Verification against source",
+          "after_start_line": 59,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_5_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 64,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_6_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 68,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Limits-of-these-results-stated-rather-than-hidden",
+          "new_signature": "markdown heading Limits of these results, stated rather than hidden",
+          "after_start_line": 78,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Live-verification-after-implementation",
+          "new_signature": "markdown heading Live verification, after implementation",
+          "after_start_line": 94,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_7_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 99,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "82-passing-0-failing-33-pre-Curveball-tests-unchanged-49-new",
+          "new_signature": "markdown heading -\u003e 82 passing, 0 failing (33 pre-Curveball tests unchanged, 49 new)",
+          "after_start_line": 101,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_8_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 102,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_9_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 106,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_10_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 115,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "The-safety-invariant-executed-rather-than-asserted",
+          "new_signature": "markdown heading The safety invariant, executed rather than asserted",
+          "after_start_line": 128,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_11_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 132,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_12_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 137,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_13_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 142,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_14_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 150,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_15_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 157,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_16_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 160,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "MCP-surface",
+          "new_signature": "markdown heading MCP surface",
+          "after_start_line": 165,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_17_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 167,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_18_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 172,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "One-graph-claim-worth-reporting-honestly",
+          "new_signature": "markdown heading One graph claim worth reporting honestly",
+          "after_start_line": 177,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "What-this-evidence-was-used-for",
+          "new_signature": "markdown heading What this evidence was used for",
+          "after_start_line": 189,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/README.md",
+      "status": "M",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "propose_change-symbol-depth-repo-allow_dirty",
+          "old_signature": "markdown heading `propose_change({ symbol, depth?, repo?, allow_dirty? })`",
+          "before_start_line": 28,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "propose_change-symbol-depth-repo-allow_dirty-session",
+          "new_signature": "markdown heading `propose_change({ symbol, depth?, repo?, allow_dirty?, session? })`",
+          "after_start_line": 28,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "verify_change-contract_id-repo",
+          "old_signature": "markdown heading `verify_change({ contract_id?, repo? })`",
+          "before_start_line": 44,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "verify_change-contract_id-repo-session",
+          "new_signature": "markdown heading `verify_change({ contract_id?, repo?, session? })`",
+          "after_start_line": 51,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "Reading-the-agent-s-own-transcript",
+          "new_signature": "markdown heading Reading the agent's own transcript",
+          "after_start_line": 64,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "The-safety-rule-stated-plainly",
+          "new_signature": "markdown heading The safety rule, stated plainly",
+          "after_start_line": 85,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_7_bash",
+          "new_signature": "markdown code fence bash",
+          "after_start_line": 150,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "code_fence",
+          "name": "code_fence_8_text",
+          "new_signature": "markdown code fence text",
+          "after_start_line": 155,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/adjudicate/adjudicate.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "adjudicate",
+          "before_start_line": 39,
+          "after_start_line": 39,
+          "dependents_count": 3
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/adjudicate/claims.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "contract",
+          "new_signature": "function contract(overrides: Partial\u003cChangeContract\u003e = {}): ChangeContract",
+          "after_start_line": 37,
+          "dependents_count": 18
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "claim",
+          "new_signature": "function claim(path: string, kind: ClaimedChange[\"kind\"] = \"modified\"): ClaimedChange",
+          "after_start_line": 57,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "session",
+          "new_signature": "function session(claims: ClaimedChange[], overrides: Partial\u003cAgentSession\u003e = {}): AgentSession",
+          "after_start_line": 61,
+          "dependents_count": 278
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "actual",
+          "new_signature": "function actual(changed: string[], overrides: Partial\u003cActualChanges\u003e = {}): ActualChanges",
+          "after_start_line": 82,
+          "dependents_count": 6
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/cli.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "usage",
+          "before_start_line": 15,
+          "after_start_line": 15,
+          "dependents_count": 26
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "main",
+          "before_start_line": 31,
+          "after_start_line": 37,
+          "dependents_count": 24
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/core.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "ProposeArgs",
+          "old_signature": "type ProposeArgs = { symbol: string; repo?: string; depth?: 1 | 2; /** Escape hatch for a tree that is already dirty on purpose. */ allow_dirty?: boolean; }",
+          "new_signature": "type ProposeArgs = { symbol: string; repo?: string; depth?: 1 | 2; /** Escape hatch for a tree that is already dirty on purpose. */ allow_dirty?: boolean; /** * Path to an agent session transcript. Its checkpoint events contribute * open questions as known traps, alongside the Entire CLI checkpoint path. * Optional: omitting it leaves propose_change behaving exactly as before. */ session?: string; }",
+          "before_start_line": 16,
+          "after_start_line": 18,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ProposeArgs.session",
+          "new_signature": "session : string",
+          "after_start_line": 29,
+          "dependents_count": 278
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "propose",
+          "before_start_line": 26,
+          "after_start_line": 34,
+          "dependents_count": 2
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "VerifyArgs",
+          "old_signature": "type VerifyArgs = { contract_id?: string; repo?: string }",
+          "new_signature": "type VerifyArgs = { contract_id?: string; repo?: string; /** * Path to the agent's session transcript. Optional. Supplying it adds claim * reconciliation on top of the deterministic diff; omitting it leaves this * function behaving exactly as it did before the Noon Curveball. */ session?: string; }",
+          "before_start_line": 98,
+          "after_start_line": 121,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "VerifyArgs.session",
+          "new_signature": "session : string",
+          "after_start_line": 129,
+          "dependents_count": 278
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "verify",
+          "before_start_line": 100,
+          "after_start_line": 132,
+          "dependents_count": 6
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/exec.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "mcp/entire-guard/src/evidence/exec.test.ts",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/exec.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "JsonlRecord.line",
+          "new_signature": "line : number",
+          "after_start_line": 70,
+          "dependents_count": 83
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "JsonlRecord.value",
+          "new_signature": "value : unknown",
+          "after_start_line": 70,
+          "dependents_count": 59
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "JsonlRecord",
+          "new_signature": "type JsonlRecord = { line: number; value: unknown }",
+          "after_start_line": 70,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "JsonlFailure.error",
+          "new_signature": "error : string",
+          "after_start_line": 71,
+          "dependents_count": 819
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "JsonlFailure.line",
+          "new_signature": "line : number",
+          "after_start_line": 71,
+          "dependents_count": 83
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "JsonlFailure.text",
+          "new_signature": "text : string",
+          "after_start_line": 71,
+          "dependents_count": 119
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "JsonlFailure",
+          "new_signature": "type JsonlFailure = { line: number; text: string; error: string }",
+          "after_start_line": 71,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "JsonlParse.failures",
+          "new_signature": "failures : JsonlFailure[]",
+          "after_start_line": 72,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "JsonlParse.records",
+          "new_signature": "records : JsonlRecord[]",
+          "after_start_line": 72,
+          "dependents_count": 20
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "JsonlParse",
+          "new_signature": "type JsonlParse = { records: JsonlRecord[]; failures: JsonlFailure[] }",
+          "after_start_line": 72,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "parseJsonl",
+          "new_signature": "function parseJsonl(text: string): JsonlParse",
+          "after_start_line": 82,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/session/detect.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Detection.format",
+          "new_signature": "format : SessionFormat",
+          "after_start_line": 15,
+          "dependents_count": 45
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Detection.reason",
+          "new_signature": "reason : string",
+          "after_start_line": 15,
+          "dependents_count": 19
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "Detection",
+          "new_signature": "type Detection = { format?: SessionFormat; reason: string }",
+          "after_start_line": 15,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "isObject",
+          "new_signature": "function isObject(v: unknown): v is Record\u003cstring, unknown\u003e",
+          "after_start_line": 20,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "looksAcme",
+          "new_signature": "function looksAcme(o: Record\u003cstring, unknown\u003e): boolean",
+          "after_start_line": 28,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "looksEntireProtocol",
+          "new_signature": "function looksEntireProtocol(o: Record\u003cstring, unknown\u003e): boolean",
+          "after_start_line": 39,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "detectFormat",
+          "new_signature": "function detectFormat(records: JsonlRecord[]): Detection",
+          "after_start_line": 50,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/session/index.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "provenanceFor",
+          "new_signature": "function provenanceFor(source: string): Provenance",
+          "after_start_line": 28,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "parseSession",
+          "new_signature": "function parseSession(text: string, source: string): SessionEvidence",
+          "after_start_line": 47,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "loadSession",
+          "new_signature": "async function loadSession(filePath: string): Promise\u003cSessionEvidence\u003e",
+          "after_start_line": 117,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/session/load.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "mcp/entire-guard/src/evidence/session/load.test.ts",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/session/normalize.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "Accumulator",
+          "new_signature": "type Accumulator = { session_id?: string; agent?: string; repo?: string; /** Keyed by normalised path, so a stream format and a batch format converge. */ claims: Map\u003cstring, ClaimedChange\u003e; lifecycle: { started: boolean; ended: boolean; status?: string }; checkpoints: SessionCheckpoint[]; unknown: Map\u003cstring, UnknownEvent\u003e; }",
+          "after_start_line": 16,
+          "dependents_count": 6
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Accumulator.session_id",
+          "new_signature": "session_id : string",
+          "after_start_line": 17,
+          "dependents_count": 131
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Accumulator.agent",
+          "new_signature": "agent : string",
+          "after_start_line": 18,
+          "dependents_count": 195
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Accumulator.repo",
+          "new_signature": "repo : string",
+          "after_start_line": 19,
+          "dependents_count": 108
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Accumulator.claims",
+          "new_signature": "claims : Map\u003cstring, ClaimedChange\u003e",
+          "after_start_line": 21,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Accumulator.lifecycle",
+          "new_signature": "lifecycle : { started: boolean; ended: boolean; status?: string }",
+          "after_start_line": 22,
+          "dependents_count": 18
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Accumulator.checkpoints",
+          "new_signature": "checkpoints : SessionCheckpoint[]",
+          "after_start_line": 23,
+          "dependents_count": 22
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Accumulator.unknown",
+          "new_signature": "unknown : Map\u003cstring, UnknownEvent\u003e",
+          "after_start_line": 24,
+          "dependents_count": 56
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "newAccumulator",
+          "new_signature": "function newAccumulator(): Accumulator",
+          "after_start_line": 27,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "normaliseClaimPath",
+          "new_signature": "function normaliseClaimPath(p: string): string",
+          "after_start_line": 37,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "addClaim",
+          "new_signature": "function addClaim( acc: Accumulator, rawPath: string, kind: ClaimedChange[\"kind\"], line: number, summary?: string, ): void",
+          "after_start_line": 51,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "noteUnknown",
+          "new_signature": "function noteUnknown(acc: Accumulator, name: string, line: number): void",
+          "after_start_line": 79,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "noteIdentity",
+          "new_signature": "function noteIdentity( acc: Accumulator, field: \"session_id\" | \"agent\" | \"repo\", value: unknown, ): void",
+          "after_start_line": 89,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "isObject",
+          "new_signature": "function isObject(v: unknown): v is Record\u003cstring, unknown\u003e",
+          "after_start_line": 99,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "asString",
+          "new_signature": "function asString(v: unknown): string | undefined",
+          "after_start_line": 103,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "asStringArray",
+          "new_signature": "function asStringArray(v: unknown): string[]",
+          "after_start_line": 107,
+          "dependents_count": 2
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/session/readers/acme-events.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "claimKind",
+          "new_signature": "function claimKind(change: unknown): ClaimedChange[\"kind\"]",
+          "after_start_line": 41,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "readAcmeEvents",
+          "new_signature": "function readAcmeEvents(records: JsonlRecord[]): Accumulator",
+          "after_start_line": 48,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/session/readers/entire-protocol.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "isWriteTool",
+          "new_signature": "function isWriteTool(name: string): boolean",
+          "after_start_line": 57,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "toolPath",
+          "new_signature": "function toolPath(input: unknown): string | undefined",
+          "after_start_line": 63,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "readEntireProtocol",
+          "new_signature": "function readEntireProtocol(records: JsonlRecord[]): Accumulator",
+          "after_start_line": 73,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/session/session.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "read",
+          "new_signature": "function read(name: string): string",
+          "after_start_line": 26,
+          "dependents_count": 102
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/session/traps.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "sessionFrom",
+          "new_signature": "function sessionFrom(name: string)",
+          "after_start_line": 25,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/session/traps.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionTrapEvidence.degraded",
+          "new_signature": "degraded : string[]",
+          "after_start_line": 20,
+          "dependents_count": 33
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionTrapEvidence.traps",
+          "new_signature": "traps : KnownTrap[]",
+          "after_start_line": 20,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "SessionTrapEvidence",
+          "new_signature": "type SessionTrapEvidence = { traps: KnownTrap[]; degraded: string[] }",
+          "after_start_line": 20,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "trapsFromSession",
+          "new_signature": "function trapsFromSession(session: AgentSession): SessionTrapEvidence",
+          "after_start_line": 22,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/format-claims.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "verdict",
+          "new_signature": "function verdict(overrides: Partial\u003cVerdict\u003e = {}): Verdict",
+          "after_start_line": 21,
+          "dependents_count": 6
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/format.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "basisNote",
+          "new_signature": "function basisNote(basis: Verdict[\"evidence_basis\"]): string",
+          "after_start_line": 14,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "formatVerdict",
+          "before_start_line": 59,
+          "after_start_line": 77,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/server.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "module",
+          "name": "mcp/entire-guard/src/server.ts",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/types.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "Confidence",
+          "old_signature": "type Confidence = \"deterministic\" | \"heuristic\"",
+          "new_signature": "type Confidence = \"deterministic\" | \"heuristic\" | \"claimed\"",
+          "before_start_line": 10,
+          "after_start_line": 20,
+          "dependents_count": 2
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "Provenance",
+          "old_signature": "type Provenance = { source: \"graph.impact\" | \"graph.diff\" | \"checkpoint\" | \"git\" | \"why\"; /** The exact command run, verbatim, for independent verification. */ command: string; confidence: Confidence; }",
+          "new_signature": "type Provenance = { source: \"graph.impact\" | \"graph.diff\" | \"checkpoint\" | \"git\" | \"why\" | \"transcript\"; /** The exact command run, verbatim, for independent verification. */ command: string; confidence: Confidence; }",
+          "before_start_line": 12,
+          "after_start_line": 22,
+          "dependents_count": 36
+        },
+        {
+          "type": "signature_changed",
+          "kind": "field",
+          "name": "Provenance.source",
+          "old_signature": "source : \"graph.impact\" | \"graph.diff\" | \"checkpoint\" | \"git\" | \"why\"",
+          "new_signature": "source : \"graph.impact\" | \"graph.diff\" | \"checkpoint\" | \"git\" | \"why\" | \"transcript\"",
+          "before_start_line": 13,
+          "after_start_line": 23,
+          "dependents_count": 34
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "ActualChanges",
+          "old_signature": "type ActualChanges = { changed_files: string[]; semantic_changes: unknown; head_sha: string; degraded: string[]; provenance: Provenance[]; }",
+          "new_signature": "type ActualChanges = { changed_files: string[]; semantic_changes: unknown; head_sha: string; degraded: string[]; provenance: Provenance[]; /** The agent's own account of what it did, when one was supplied. */ session?: AgentSession; /** True when git evidence for the change set could not be obtained. */ git_unavailable?: boolean; }",
+          "before_start_line": 70,
+          "after_start_line": 87,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ActualChanges.session",
+          "new_signature": "session : AgentSession",
+          "after_start_line": 94,
+          "dependents_count": 278
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ActualChanges.git_unavailable",
+          "new_signature": "git_unavailable : boolean",
+          "after_start_line": 96,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "EvidenceBasis",
+          "new_signature": "type EvidenceBasis = \"deterministic\" | \"reconciled\" | \"claimed_only\"",
+          "after_start_line": 106,
+          "dependents_count": 3
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "Verdict",
+          "old_signature": "type Verdict = { status: \"PASS\" | \"WARN\" | \"FAIL\"; /** Edited but outside the proven blast radius. Deterministic -\u003e FAIL. */ out_of_bounds: Array\u003c{ path: string; note: string; provenance: Provenance }\u003e; /** A direct caller that was obliged to change and did not. The headline finding. */ forgotten: Array\u003c{ path: string; symbol: string; relation: string; provenance: Provenance }\u003e; /** Historically co-changing files left untouched. Heuristic -\u003e WARN. */ drift_candidates: Array\u003c{ path: string; detail: string; provenance: Provenance }\u003e; /** A known unresolved risk in territory this change touched. Heuristic -\u003e WARN. */ traps_hit: Array\u003c{ text: string; checkpoint_id: string; path: string; provenance: Provenance }\u003e; in_bounds: string[]; semantic_changes: unknown; degraded: string[]; contract_id: string; base_sha: string; head_sha: string; }",
+          "new_signature": "type Verdict = { status: \"PASS\" | \"WARN\" | \"FAIL\"; /** Which sources the verdict rests on. */ evidence_basis: EvidenceBasis; /** * The agent's own transcript reports editing a file the contract forbids. * An admission against interest, checked against a deterministic radius, so * the breach stands regardless of how reliable the transcript is. -\u003e FAIL. */ out_of_bounds_by_claim: Array\u003c{ path: string; note: string; provenance: Provenance }\u003e; /** Claimed in the transcript, absent from the diff. Claimed -\u003e WARN. */ unverified_claims: Array\u003c{ path: string; note: string; provenance: Provenance }\u003e; /** Present in the diff, never mentioned in the transcript. Claimed -\u003e WARN. */ unclaimed_changes: Array\u003c{ path: string; note: string; provenance: Provenance }\u003e; /** Edited but outside the proven blast radius. Deterministic -\u003e FAIL. */ out_of_bounds: Array\u003c{ path: string; note: string; provenance: Provenance }\u003e; /** A direct caller that was obliged to change and did not. The headline finding. */ forgotten: Array\u003c{ path: string; symbol: string; relation: string; provenance: Provenance }\u003e; /** Historically co-changing files left untouched. Heuristic -\u003e WARN. */ drift_candidates: Array\u003c{ path: string; detail: string; provenance: Provenance }\u003e; /** A known unresolved risk in territory this change touched. Heuristic -\u003e WARN. */ traps_hit: Array\u003c{ text: string; checkpoint_id: string; path: string; provenance: Provenance }\u003e; in_bounds: string[]; semantic_changes: unknown; degraded: string[]; contract_id: string; base_sha: string; head_sha: string; }",
+          "before_start_line": 78,
+          "after_start_line": 108,
+          "dependents_count": 11
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Verdict.evidence_basis",
+          "new_signature": "evidence_basis : EvidenceBasis",
+          "after_start_line": 111,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Verdict.out_of_bounds_by_claim",
+          "new_signature": "out_of_bounds_by_claim : Array\u003c{ path: string; note: string; provenance: Provenance }\u003e",
+          "after_start_line": 117,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Verdict.unverified_claims",
+          "new_signature": "unverified_claims : Array\u003c{ path: string; note: string; provenance: Provenance }\u003e",
+          "after_start_line": 119,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Verdict.unclaimed_changes",
+          "new_signature": "unclaimed_changes : Array\u003c{ path: string; note: string; provenance: Provenance }\u003e",
+          "after_start_line": 121,
+          "dependents_count": 4
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "Policy",
+          "old_signature": "type Policy = { depth: 1 | 2; exclude_tests: boolean; /** Silent-truncation budget on graph impact. The 4096 default clips radius. */ max_context_bytes: number; /** Which deterministic findings escalate to FAIL. */ fail_on: Array\u003c\"out_of_bounds\" | \"forgotten\"\u003e; /** * Cap on reported drift candidates. Co-change is a ranked signal, not a set: * a file that changes alongside everything carries no information, and a long * list buries the one row that matters. */ drift_max: number; /** Ignore co-change relationships weaker than this many shared commits. */ drift_min_commits: number; /** Paths always permitted to change (docs, the contract store itself). */ always_allowed: string[]; /** Fail closed when evidence is degraded rather than reporting a soft PASS. */ fail_on_degraded: boolean; }",
+          "new_signature": "type Policy = { depth: 1 | 2; exclude_tests: boolean; /** Silent-truncation budget on graph impact. The 4096 default clips radius. */ max_context_bytes: number; /** Which findings escalate to FAIL. Every member is deterministic by design. */ fail_on: Array\u003c\"out_of_bounds\" | \"forgotten\" | \"out_of_bounds_by_claim\"\u003e; /** * Cap on reported drift candidates. Co-change is a ranked signal, not a set: * a file that changes alongside everything carries no information, and a long * list buries the one row that matters. */ drift_max: number; /** Ignore co-change relationships weaker than this many shared commits. */ drift_min_commits: number; /** Paths always permitted to change (docs, the contract store itself). */ always_allowed: string[]; /** Fail closed when evidence is degraded rather than reporting a soft PASS. */ fail_on_degraded: boolean; }",
+          "before_start_line": 101,
+          "after_start_line": 143,
+          "dependents_count": 8
+        },
+        {
+          "type": "signature_changed",
+          "kind": "field",
+          "name": "Policy.fail_on",
+          "old_signature": "fail_on : Array\u003c\"out_of_bounds\" | \"forgotten\"\u003e",
+          "new_signature": "fail_on : Array\u003c\"out_of_bounds\" | \"forgotten\" | \"out_of_bounds_by_claim\"\u003e",
+          "before_start_line": 107,
+          "after_start_line": 149,
+          "dependents_count": 3
+        },
+        {
+          "type": "signature_changed",
+          "kind": "variable",
+          "name": "DEFAULT_POLICY",
+          "old_signature": "DEFAULT_POLICY: Policy = { depth: 2, exclude_tests: false, max_context_bytes: 65536, fail_on: [\"out_of_bounds\", \"forgotten\"], drift_max: 5, drift_min_commits: 2, always_allowed: [\".entire-guard/\", \"BUILDATHON.md\", \"evidence/\"], fail_on_degraded: false, }",
+          "new_signature": "DEFAULT_POLICY: Policy = { depth: 2, exclude_tests: false, max_context_bytes: 65536, fail_on: [\"out_of_bounds\", \"forgotten\", \"out_of_bounds_by_claim\"], drift_max: 5, drift_min_commits: 2, always_allowed: [\".entire-guard/\", \"BUILDATHON.md\", \"evidence/\"], fail_on_degraded: false, }",
+          "before_start_line": 122,
+          "after_start_line": 164,
+          "dependents_count": 6
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "SessionFormat",
+          "new_signature": "type SessionFormat = \"entire-protocol\" | \"acme-events\"",
+          "after_start_line": 192,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "ClaimedChange",
+          "new_signature": "type ClaimedChange = { path: string; kind: \"modified\" | \"created\" | \"deleted\"; summary?: string; /** 1-based line in the transcript where the path was first reported. */ line: number; events: number; }",
+          "after_start_line": 202,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ClaimedChange.path",
+          "new_signature": "path : string",
+          "after_start_line": 203,
+          "dependents_count": 284
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ClaimedChange.kind",
+          "new_signature": "kind : \"modified\" | \"created\" | \"deleted\"",
+          "after_start_line": 204,
+          "dependents_count": 16
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ClaimedChange.summary",
+          "new_signature": "summary : string",
+          "after_start_line": 205,
+          "dependents_count": 63
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ClaimedChange.line",
+          "new_signature": "line : number",
+          "after_start_line": 207,
+          "dependents_count": 83
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "ClaimedChange.events",
+          "new_signature": "events : number",
+          "after_start_line": 208,
+          "dependents_count": 15
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "SessionCheckpoint",
+          "new_signature": "type SessionCheckpoint = { checkpoint_id: string; git_commit?: string; intent?: string; summary?: string; open_questions: string[]; /** 1-based line in the transcript. */ line: number; }",
+          "after_start_line": 212,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionCheckpoint.checkpoint_id",
+          "new_signature": "checkpoint_id : string",
+          "after_start_line": 213,
+          "dependents_count": 20
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionCheckpoint.git_commit",
+          "new_signature": "git_commit : string",
+          "after_start_line": 214,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionCheckpoint.intent",
+          "new_signature": "intent : string",
+          "after_start_line": 215,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionCheckpoint.summary",
+          "new_signature": "summary : string",
+          "after_start_line": 216,
+          "dependents_count": 63
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionCheckpoint.open_questions",
+          "new_signature": "open_questions : string[]",
+          "after_start_line": 217,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionCheckpoint.line",
+          "new_signature": "line : number",
+          "after_start_line": 219,
+          "dependents_count": 83
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "UnknownEvent.count",
+          "new_signature": "count : number",
+          "after_start_line": 229,
+          "dependents_count": 42
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "UnknownEvent.first_line",
+          "new_signature": "first_line : number",
+          "after_start_line": 229,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "UnknownEvent.name",
+          "new_signature": "name : string",
+          "after_start_line": 229,
+          "dependents_count": 187
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "UnknownEvent",
+          "new_signature": "type UnknownEvent = { name: string; count: number; first_line: number }",
+          "after_start_line": 229,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "AgentSession",
+          "new_signature": "type AgentSession = { format: SessionFormat; /** Where this came from, for provenance. */ source: string; session_id?: string; agent?: string; repo?: string; claimed_changes: ClaimedChange[]; lifecycle: { started: boolean; ended: boolean; status?: string }; checkpoints: SessionCheckpoint[]; unknown_events: UnknownEvent[]; records_parsed: number; /** * True only when the transcript ended cleanly *and* every line parsed. * A false value makes PASS unreachable -- see EvidenceBasis. */ complete: boolean; degraded: string[]; provenance: Provenance; }",
+          "after_start_line": 232,
+          "dependents_count": 7
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.format",
+          "new_signature": "format : SessionFormat",
+          "after_start_line": 233,
+          "dependents_count": 45
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.source",
+          "new_signature": "source : string",
+          "after_start_line": 235,
+          "dependents_count": 34
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.session_id",
+          "new_signature": "session_id : string",
+          "after_start_line": 236,
+          "dependents_count": 131
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.agent",
+          "new_signature": "agent : string",
+          "after_start_line": 237,
+          "dependents_count": 195
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.repo",
+          "new_signature": "repo : string",
+          "after_start_line": 238,
+          "dependents_count": 108
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.claimed_changes",
+          "new_signature": "claimed_changes : ClaimedChange[]",
+          "after_start_line": 239,
+          "dependents_count": 5
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.lifecycle",
+          "new_signature": "lifecycle : { started: boolean; ended: boolean; status?: string }",
+          "after_start_line": 240,
+          "dependents_count": 18
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.checkpoints",
+          "new_signature": "checkpoints : SessionCheckpoint[]",
+          "after_start_line": 241,
+          "dependents_count": 22
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.unknown_events",
+          "new_signature": "unknown_events : UnknownEvent[]",
+          "after_start_line": 242,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.records_parsed",
+          "new_signature": "records_parsed : number",
+          "after_start_line": 243,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.complete",
+          "new_signature": "complete : boolean",
+          "after_start_line": 248,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.degraded",
+          "new_signature": "degraded : string[]",
+          "after_start_line": 249,
+          "dependents_count": 33
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "AgentSession.provenance",
+          "new_signature": "provenance : Provenance",
+          "after_start_line": 250,
+          "dependents_count": 37
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "SessionEvidence",
+          "new_signature": "type SessionEvidence = { session?: AgentSession; degraded: string[]; provenance: Provenance; }",
+          "after_start_line": 261,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionEvidence.session",
+          "new_signature": "session : AgentSession",
+          "after_start_line": 262,
+          "dependents_count": 278
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionEvidence.degraded",
+          "new_signature": "degraded : string[]",
+          "after_start_line": 263,
+          "dependents_count": 33
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "SessionEvidence.provenance",
+          "new_signature": "provenance : Provenance",
+          "after_start_line": 264,
+          "dependents_count": 37
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "code": "W_UNSUPPORTED_FILE",
+      "severity": "info",
+      "file_path": "mcp/entire-guard/test/fixtures/session-entire-protocol.jsonl",
+      "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+      "detail": "head version has no supported parser"
+    },
+    {
+      "code": "W_UNSUPPORTED_FILE",
+      "severity": "info",
+      "file_path": "mcp/entire-guard/test/fixtures/session-incomplete.jsonl",
+      "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+      "detail": "head version has no supported parser"
+    },
+    {
+      "code": "W_UNSUPPORTED_FILE",
+      "severity": "info",
+      "file_path": "mcp/entire-guard/test/fixtures/session-original-unknown-events.jsonl",
+      "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+      "detail": "head version has no supported parser"
+    },
+    {
+      "code": "W_UNSUPPORTED_FILE",
+      "severity": "info",
+      "file_path": "mcp/entire-guard/test/fixtures/session-unknown-events.jsonl",
+      "effect_on_semantic_completeness": "file skipped; no parser for this file type, so its changes are not analyzed",
+      "detail": "head version has no supported parser"
+    }
+  ]
+}
