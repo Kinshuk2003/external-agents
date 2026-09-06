@@ -105,6 +105,14 @@ export type Policy = {
   max_context_bytes: number;
   /** Which deterministic findings escalate to FAIL. */
   fail_on: Array<"out_of_bounds" | "forgotten">;
+  /**
+   * Cap on reported drift candidates. Co-change is a ranked signal, not a set:
+   * a file that changes alongside everything carries no information, and a long
+   * list buries the one row that matters.
+   */
+  drift_max: number;
+  /** Ignore co-change relationships weaker than this many shared commits. */
+  drift_min_commits: number;
   /** Paths always permitted to change (docs, the contract store itself). */
   always_allowed: string[];
   /** Fail closed when evidence is degraded rather than reporting a soft PASS. */
@@ -116,6 +124,8 @@ export const DEFAULT_POLICY: Policy = {
   exclude_tests: false,
   max_context_bytes: 65536,
   fail_on: ["out_of_bounds", "forgotten"],
+  drift_max: 5,
+  drift_min_commits: 2,
   always_allowed: [".entire-guard/", "BUILDATHON.md", "evidence/"],
   fail_on_degraded: false,
 };

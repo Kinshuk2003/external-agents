@@ -20,6 +20,28 @@ function norm(p: string): string {
   return p.split("\\").join("/").replace(/^\.\//, "");
 }
 
+/**
+ * Repository plumbing: CI workflows, lint config, ignore files, licence and
+ * lockfiles. These co-change with almost every commit, so a FILE_CHANGES_WITH
+ * edge to one of them carries no information about THIS symbol. Excluding them
+ * is presentation, not judgement -- they stay inside `allowed_files`, so
+ * editing one is never penalised; they are only kept out of the drift warning
+ * list, where noise buries the row that matters.
+ */
+export function isRepoPlumbing(path: string): boolean {
+  if (path.startsWith(".github/")) return true;
+  const base = path.slice(path.lastIndexOf("/") + 1);
+  if (!path.includes("/") && base.startsWith(".")) return true; // root dotfiles
+  return /^(LICENSE|NOTICE|CHANGELOG|CODEOWNERS)/i.test(base) ||
+    /^(mise\.toml|Makefile|Dockerfile|.*\.ya?ml|.*lock(file)?(\.json|\.yaml)?|package-lock\.json|go\.sum)$/i.test(base);
+}
+
+/** "files changed together in 4 recent commits" -> 4. Unparseable -> 0. */
+export function coChangeStrength(detail: string | undefined): number {
+  const m = /(\d+)\s+recent commits?/.exec(detail ?? "");
+  return m ? Number(m[1]) : 0;
+}
+
 function addFrom(
   bucket: GraphBucket | undefined,
   reason: string,
@@ -54,6 +76,10 @@ export function buildContract(args: {
   const allowedMap = new Map<string, AllowedFile>();
   const must_update: MustUpdate[] = [];
   const drift_candidates: DriftCandidate[] = [];
+  /** Every co-change seen, before ranking and capping. */
+  const candidateDrift: DriftCandidate[] = [];
+  /** What the drift filter hid, so it can be disclosed rather than swallowed. */
+  const degradedFromDrift: string[] = [];
 
   const focusFile = impact?.focus?.file_path ? norm(impact.focus.file_path) : undefined;
   if (focusFile) {
@@ -126,7 +152,7 @@ export function buildContract(args: {
       }
       continue;
     }
-    drift_candidates.push({
+    candidateDrift.push({
       path: key,
       detail: edge.detail ?? edge.relation,
       provenance: { ...impactProvenance, confidence: "heuristic" },
@@ -140,7 +166,37 @@ export function buildContract(args: {
     }
   }
 
-  const degraded = [...args.degraded];
+  // Rank, filter and cap the drift list. Every co-change stays in
+  // `allowed_files` -- editing one is never penalised. This only decides what
+  // is worth SHOWING, because a 13-row warning list buries its own signal.
+  const plumbing = candidateDrift.filter((d) => isRepoPlumbing(d.path));
+  const ranked = candidateDrift
+    .filter((d) => !isRepoPlumbing(d.path))
+    .sort((a, b) => coChangeStrength(b.detail) - coChangeStrength(a.detail));
+  const weak = ranked.filter((d) => coChangeStrength(d.detail) < policy.drift_min_commits);
+  const strong = ranked.filter((d) => coChangeStrength(d.detail) >= policy.drift_min_commits);
+  drift_candidates.push(...strong.slice(0, policy.drift_max));
+
+  // Say what was hidden and why. Suppressing evidence silently would be the
+  // same class of failure this product exists to catch.
+  const hiddenCap = Math.max(0, strong.length - policy.drift_max);
+  if (plumbing.length > 0) {
+    degradedFromDrift.push(
+      `${plumbing.length} co-changing file(s) omitted from drift warnings as repository plumbing (CI, lint, ignore, lockfiles); they remain permitted to edit`,
+    );
+  }
+  if (weak.length > 0) {
+    degradedFromDrift.push(
+      `${weak.length} co-changing file(s) omitted as weaker than ${policy.drift_min_commits} shared commits`,
+    );
+  }
+  if (hiddenCap > 0) {
+    degradedFromDrift.push(
+      `${hiddenCap} further co-changing file(s) omitted beyond the drift_max cap of ${policy.drift_max}`,
+    );
+  }
+
+  const degraded = [...args.degraded, ...degradedFromDrift];
   if (!impact) {
     degraded.push("no impact result: the blast radius is UNKNOWN, not empty");
   } else if ((impact.callers?.total ?? 0) === 0) {
