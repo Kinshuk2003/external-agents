@@ -1,0 +1,1333 @@
+{
+  "base": "85c1b9b",
+  "head": "HEAD",
+  "files": [
+    {
+      "path": ".gitignore",
+      "status": "M",
+      "language": "Git Ignore",
+      "changes": [
+        {
+          "type": "body_changed",
+          "kind": "document",
+          "name": ".gitignore",
+          "before_start_line": 1,
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "BUILD-GUIDE.md",
+      "status": "D",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "entire-guard-Build-Guide",
+          "old_signature": "markdown heading entire-guard — Build Guide",
+          "before_start_line": 1,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "0.-Rules-that-will-get-you-disqualified-if-ignored",
+          "old_signature": "markdown heading 0. Rules that will get you disqualified if ignored",
+          "before_start_line": 8,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "1.-Pre-9:00-checklist-allowed-now",
+          "old_signature": "markdown heading 1. Pre-9:00 checklist (allowed now)",
+          "before_start_line": 17,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "2.-9:00-9:25-Setup-and-the-probe-that-de-risks-everything",
+          "old_signature": "markdown heading 2. 9:00–9:25 — Setup and the probe that de-risks everything",
+          "before_start_line": 31,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_1_bash",
+          "old_signature": "markdown code fence bash",
+          "before_start_line": 35,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "1.-Fork-https://github.com/entireio/external-agents-on-the-web-UI-keep-the-name.-Then:",
+          "old_signature": "markdown heading 1. Fork https://github.com/entireio/external-agents on the web UI, keep the name. Then:",
+          "before_start_line": 36,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "2.-Checkpoints-on",
+          "old_signature": "markdown heading 2. Checkpoints on",
+          "before_start_line": 41,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "3.-Graph-on",
+          "old_signature": "markdown heading 3. Graph on",
+          "before_start_line": 45,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_2_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 48,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "The-15-minute-probe-do-not-skip-this",
+          "old_signature": "markdown heading The 15-minute probe — do not skip this",
+          "before_start_line": 56,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_3_bash",
+          "old_signature": "markdown code fence bash",
+          "before_start_line": 60,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "pick-a-real-function-name-from-that-output-then:",
+          "old_signature": "markdown heading pick a real function name from that output, then:",
+          "before_start_line": 66,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_4_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 74,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "How-checkpoints-are-actually-created-read-this-once",
+          "old_signature": "markdown heading How checkpoints are actually created — read this once",
+          "before_start_line": 78,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_5_bash",
+          "old_signature": "markdown code fence bash",
+          "before_start_line": 89,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_6_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 92,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "3.-Build-in-this-order",
+          "old_signature": "markdown heading 3. Build in this order",
+          "before_start_line": 101,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Step-1-25-min-Evidence-adapters",
+          "old_signature": "markdown heading Step 1 (~25 min) — Evidence adapters",
+          "before_start_line": 119,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Step-2-20-min-Contract-builder-store",
+          "old_signature": "markdown heading Step 2 (~20 min) — Contract builder + store",
+          "before_start_line": 123,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Step-3-30-min-Adjudicator-its-tests",
+          "old_signature": "markdown heading Step 3 (~30 min) — Adjudicator + its tests",
+          "before_start_line": 127,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Step-4-35-min-MCP-server",
+          "old_signature": "markdown heading Step 4 (~35 min) — MCP server",
+          "before_start_line": 131,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_7_ts",
+          "old_signature": "markdown code fence ts",
+          "before_start_line": 134,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_8_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 156,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_9_json",
+          "old_signature": "markdown code fence json",
+          "before_start_line": 162,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_10_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 165,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Step-5-20-min-Output-formatting",
+          "old_signature": "markdown heading Step 5 (~20 min) — Output formatting",
+          "before_start_line": 169,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "4.-11:45-12:00-Freeze",
+          "old_signature": "markdown heading 4. 11:45–12:00 — Freeze",
+          "before_start_line": 177,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "5.-12:00-1:00-Curveball",
+          "old_signature": "markdown heading 5. 12:00–1:00 — Curveball",
+          "before_start_line": 186,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "6.-1:00-2:30-Finish",
+          "old_signature": "markdown heading 6. 1:00–2:30 — Finish",
+          "before_start_line": 206,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "7.-2:30-2:40-Demo-rehearsal-5-minutes-out-loud-once",
+          "old_signature": "markdown heading 7. 2:30–2:40 — Demo rehearsal (5 minutes, out loud, once)",
+          "before_start_line": 224,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "8.-BUILDATHON.md-skeleton",
+          "old_signature": "markdown heading 8. BUILDATHON.md skeleton",
+          "before_start_line": 240,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_11_markdown",
+          "old_signature": "markdown code fence markdown",
+          "before_start_line": 244,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "entire-guard",
+          "old_signature": "markdown heading entire-guard",
+          "before_start_line": 245,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "One-sentence-summary",
+          "old_signature": "markdown heading One-sentence summary",
+          "before_start_line": 246,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Problem-intended-user-and-why-it-matters",
+          "old_signature": "markdown heading Problem, intended user and why it matters",
+          "before_start_line": 247,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Selected-Entire-track-and-why-Entire-is-essential",
+          "old_signature": "markdown heading Selected Entire track and why Entire is essential",
+          "before_start_line": 248,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Architecture-and-main-workflow",
+          "old_signature": "markdown heading Architecture and main workflow",
+          "before_start_line": 249,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Entire-Graph-findings-and-verification",
+          "old_signature": "markdown heading Entire Graph findings and verification",
+          "before_start_line": 250,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Noon-Curveball:-what-changed-and-how-we-adapted",
+          "old_signature": "markdown heading Noon Curveball: what changed and how we adapted",
+          "before_start_line": 251,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Checkpoint-links-and-what-each-checkpoint-proves",
+          "old_signature": "markdown heading Checkpoint links and what each checkpoint proves",
+          "before_start_line": 252,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Setup-run-and-test-instructions",
+          "old_signature": "markdown heading Setup, run and test instructions",
+          "before_start_line": 253,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Known-limitations-and-next-steps",
+          "old_signature": "markdown heading Known limitations and next steps",
+          "before_start_line": 254,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_12_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 255,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "9.-Final-20-minutes-2:40-PM",
+          "old_signature": "markdown heading 9. Final 20 minutes — 2:40 PM",
+          "before_start_line": 261,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "10.-Failure-playbook",
+          "old_signature": "markdown heading 10. Failure playbook",
+          "before_start_line": 275,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "11.-Live-build-log",
+          "old_signature": "markdown heading 11. Live build log",
+          "before_start_line": 289,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "11:15-IST-pre-freeze-slice-COMPLETE-ahead-of-the-11:45-deadline",
+          "old_signature": "markdown heading 11:15 IST — pre-freeze slice COMPLETE, ahead of the 11:45 deadline",
+          "before_start_line": 291,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_13_bash",
+          "old_signature": "markdown code fence bash",
+          "before_start_line": 306,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_14_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 312,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Corrections-to-this-guide-learned-by-running-it",
+          "old_signature": "markdown heading Corrections to this guide, learned by running it",
+          "before_start_line": 317,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Remaining-before-the-11:45-freeze",
+          "old_signature": "markdown heading Remaining before the 11:45 freeze",
+          "before_start_line": 330,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Not-started-post-curveball-6-window",
+          "old_signature": "markdown heading Not started (post-curveball, §6 window)",
+          "before_start_line": 336,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "DESIGN.md",
+      "status": "D",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "entire-guard-Technical-Design",
+          "old_signature": "markdown heading entire-guard — Technical Design",
+          "before_start_line": 1,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "1.-One-sentence-summary",
+          "old_signature": "markdown heading 1. One-sentence summary",
+          "before_start_line": 8,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "2.-Problem-and-intended-user",
+          "old_signature": "markdown heading 2. Problem and intended user",
+          "before_start_line": 12,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "3.-Why-this-is-not-a-CLI-wrapper",
+          "old_signature": "markdown heading 3. Why this is not a CLI wrapper",
+          "before_start_line": 20,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "4.-Verified-environment-facts",
+          "old_signature": "markdown heading 4. Verified environment facts",
+          "before_start_line": 32,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_1_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 46,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_2_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 61,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "4A.-Fork-target:-entireio/external-agents-recon-10:25-IST",
+          "old_signature": "markdown heading 4A. Fork target: `entireio/external-agents` (recon 10:25 IST)",
+          "before_start_line": 88,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "4A.1-What-the-compiler-already-catches-state-this-before-a-judge-does",
+          "old_signature": "markdown heading 4A.1 What the compiler already catches — state this before a judge does",
+          "before_start_line": 114,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "5.-Architecture",
+          "old_signature": "markdown heading 5. Architecture",
+          "before_start_line": 127,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_3_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 129,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_4_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 149,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "6.-Data-model",
+          "old_signature": "markdown heading 6. Data model",
+          "before_start_line": 162,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_5_ts",
+          "old_signature": "markdown code fence ts",
+          "before_start_line": 164,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_6_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 195,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "7.-The-two-tool-contracts",
+          "old_signature": "markdown heading 7. The two tool contracts",
+          "before_start_line": 199,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "propose_change",
+          "old_signature": "markdown heading `propose_change`",
+          "before_start_line": 201,
+          "dependents_count": 3
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_7_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 203,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_8_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 205,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "verify_change",
+          "old_signature": "markdown heading `verify_change`",
+          "before_start_line": 216,
+          "dependents_count": 3
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_9_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 218,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "code_fence",
+          "name": "code_fence_10_text",
+          "old_signature": "markdown code fence text",
+          "before_start_line": 220,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "8.-Error-handling-and-degradation",
+          "old_signature": "markdown heading 8. Error handling and degradation",
+          "before_start_line": 232,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "9.-Testing-strategy",
+          "old_signature": "markdown heading 9. Testing strategy",
+          "before_start_line": 249,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "10.-Curveball-hedges-built-in-from-the-start",
+          "old_signature": "markdown heading 10. Curveball hedges — built in from the start",
+          "before_start_line": 259,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "11.-Rubric-mapping",
+          "old_signature": "markdown heading 11. Rubric mapping",
+          "before_start_line": 274,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "12.-Known-limitations-state-these-out-loud-in-the-demo",
+          "old_signature": "markdown heading 12. Known limitations (state these out loud in the demo)",
+          "before_start_line": 285,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "13.-Next-steps-toward-production",
+          "old_signature": "markdown heading 13. Next steps toward production",
+          "before_start_line": 293,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "14.-Build-log-what-implementation-changed-about-the-design",
+          "old_signature": "markdown heading 14. Build log — what implementation changed about the design",
+          "before_start_line": 302,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "14.1-Status:-the-narrow-end-to-end-slice-is-complete-and-runnable",
+          "old_signature": "markdown heading 14.1 Status: the narrow end-to-end slice is complete and runnable",
+          "before_start_line": 307,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "14.2-Six-corrections-the-probe-and-the-build-forced-on-4-and-6",
+          "old_signature": "markdown heading 14.2 Six corrections the probe and the build forced on §4 and §6",
+          "before_start_line": 321,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "14.3-Additions-beyond-the-original-design",
+          "old_signature": "markdown heading 14.3 Additions beyond the original design",
+          "before_start_line": 351,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "14.4-Open-risks-going-into-the-freeze",
+          "old_signature": "markdown heading 14.4 Open risks going into the freeze",
+          "before_start_line": 363,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/docs/HANDOFF.md",
+      "status": "D",
+      "language": "Markdown",
+      "changes": [
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "entire-guard-session-handoff",
+          "old_signature": "markdown heading entire-guard — session handoff",
+          "before_start_line": 1,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Why-you-are-a-fresh-session",
+          "old_signature": "markdown heading Why you are a fresh session",
+          "before_start_line": 6,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "State-as-of-handoff",
+          "old_signature": "markdown heading State as of handoff",
+          "before_start_line": 19,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Probe-results-real-JSON-supersedes-assumptions",
+          "old_signature": "markdown heading Probe results — real JSON, supersedes assumptions",
+          "before_start_line": 31,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Finding-that-corrects-the-demo-plan",
+          "old_signature": "markdown heading Finding that corrects the demo plan",
+          "before_start_line": 54,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Gotchas-already-paid-for",
+          "old_signature": "markdown heading Gotchas already paid for",
+          "before_start_line": 74,
+          "dependents_count": 0
+        },
+        {
+          "type": "removed",
+          "kind": "section",
+          "name": "Next-steps-in-order",
+          "old_signature": "markdown heading Next steps, in order",
+          "before_start_line": 85,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/contract/build.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "isRepoPlumbing",
+          "new_signature": "function isRepoPlumbing(path: string): boolean",
+          "after_start_line": 31,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "coChangeStrength",
+          "new_signature": "function coChangeStrength(detail: string | undefined): number",
+          "after_start_line": 40,
+          "dependents_count": 1
+        },
+        {
+          "type": "body_changed",
+          "kind": "function",
+          "name": "buildContract",
+          "before_start_line": 42,
+          "after_start_line": 64,
+          "dependents_count": 4
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/contract/drift.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "coChange",
+          "new_signature": "function coChange(path: string, commits: number): GraphEdge",
+          "after_start_line": 26,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "impactWith",
+          "new_signature": "function impactWith(entries: GraphEdge[]): ImpactResult",
+          "after_start_line": 34,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "build",
+          "new_signature": "function build(entries: GraphEdge[], policy = DEFAULT_POLICY)",
+          "after_start_line": 55,
+          "dependents_count": 18
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/e2e.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "withTempRepo",
+          "new_signature": "async function withTempRepo\u003cT\u003e(fn: (root: string) =\u003e Promise\u003cT\u003e): Promise\u003cT\u003e",
+          "after_start_line": 46,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "contractFor",
+          "new_signature": "function contractFor(root: string)",
+          "after_start_line": 55,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/checkpoints.test.ts",
+      "status": "A",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "module",
+          "name": "mcp/entire-guard/src/evidence/checkpoints.test.ts",
+          "after_start_line": 1,
+          "dependents_count": 0
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/evidence/checkpoints.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "signature_changed",
+          "kind": "variable",
+          "name": "TRAP_KEYWORDS",
+          "old_signature": "TRAP_KEYWORDS = [ \"todo\", \"deferred\", \"defer \", \"unresolved\", \"known risk\", \"open risk\", \"failed\", \"did not\", \"does not yet\", \"revisit\", \"workaround\", \"hack\", \"not implemented\", \"left out\", \"skipped\", \"assumption\", \"fragile\", \"deadlock\", \"race condition\", \"breaks if\", ]",
+          "new_signature": "TRAP_KEYWORDS = [ \"todo\", \"deferred\", \"defer \", \"unresolved\", \"known risk\", \"open risk\", \"failed\", \"did not\", \"does not yet\", \"revisit\", \"workaround\", \"hack\", \"not implemented\", \"left out\", \"skipped\", \"assumption\", \"fragile\", \"deadlock\", \"race condition\", \"breaks if\", \"rejected\", \"limitation\", ]",
+          "before_start_line": 17,
+          "after_start_line": 28,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "CheckpointSummary",
+          "old_signature": "type CheckpointSummary = { id?: string; sha?: string; message?: string; title?: string; summary?: string; files?: string[]; created_at?: string; }",
+          "new_signature": "type CheckpointSummary = { checkpoint_id?: string; session_id?: string; date?: string; message?: string; agent?: string; is_logs_only?: boolean; /** Older/alternate spellings, tolerated but not relied upon. */ id?: string; sha?: string; }",
+          "before_start_line": 24,
+          "after_start_line": 36,
+          "dependents_count": 2
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "CheckpointSummary.checkpoint_id",
+          "old_name": "CheckpointSummary.title",
+          "new_name": "CheckpointSummary.checkpoint_id",
+          "old_signature": "title : string",
+          "new_signature": "checkpoint_id : string",
+          "before_start_line": 28,
+          "after_start_line": 37,
+          "dependents_count": 16,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "CheckpointSummary.session_id",
+          "new_signature": "session_id : string",
+          "after_start_line": 38,
+          "dependents_count": 124
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "CheckpointSummary.date",
+          "old_name": "CheckpointSummary.summary",
+          "new_name": "CheckpointSummary.date",
+          "old_signature": "summary : string",
+          "new_signature": "date : string",
+          "before_start_line": 29,
+          "after_start_line": 39,
+          "dependents_count": 3,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "CheckpointSummary.agent",
+          "old_name": "CheckpointSummary.created_at",
+          "new_name": "CheckpointSummary.agent",
+          "old_signature": "created_at : string",
+          "new_signature": "agent : string",
+          "before_start_line": 31,
+          "after_start_line": 41,
+          "dependents_count": 175,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "CheckpointSummary.is_logs_only",
+          "new_signature": "is_logs_only : boolean",
+          "after_start_line": 42,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "type",
+          "name": "CheckpointExplain",
+          "new_signature": "type CheckpointExplain = { checkpoint_id?: string; strategy?: string; branch?: string; files_touched?: string[]; sessions?: Array\u003c{ files_touched?: string[] }\u003e; }",
+          "after_start_line": 49,
+          "dependents_count": 2
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "CheckpointExplain.checkpoint_id",
+          "new_signature": "checkpoint_id : string",
+          "after_start_line": 50,
+          "dependents_count": 16
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "CheckpointExplain.strategy",
+          "new_signature": "strategy : string",
+          "after_start_line": 51,
+          "dependents_count": 13
+        },
+        {
+          "type": "removed",
+          "kind": "function",
+          "name": "collectText",
+          "old_signature": "function collectText(value: unknown, out: string[] = [], depth = 0): string[]",
+          "before_start_line": 51,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "CheckpointExplain.branch",
+          "new_signature": "branch : string",
+          "after_start_line": 52,
+          "dependents_count": 16
+        },
+        {
+          "type": "renamed",
+          "kind": "field",
+          "name": "CheckpointExplain.files_touched",
+          "old_name": "CheckpointSummary.files",
+          "new_name": "CheckpointExplain.files_touched",
+          "old_signature": "files : string[]",
+          "new_signature": "files_touched : string[]",
+          "before_start_line": 30,
+          "after_start_line": 53,
+          "dependents_count": 8,
+          "similarity": 0.97,
+          "reconciliation": "RENAMED"
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "CheckpointExplain.sessions",
+          "new_signature": "sessions : Array\u003c{ files_touched?: string[] }\u003e",
+          "after_start_line": 54,
+          "dependents_count": 55
+        },
+        {
+          "type": "removed",
+          "kind": "function",
+          "name": "collectPaths",
+          "old_signature": "function collectPaths(value: unknown): string[]",
+          "before_start_line": 64,
+          "dependents_count": 0
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "idOf",
+          "old_signature": "function idOf(c: CheckpointSummary): string",
+          "new_signature": "function idOf(c: CheckpointSummary): string | undefined",
+          "before_start_line": 46,
+          "after_start_line": 70,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "filesOf",
+          "new_signature": "function filesOf(explain: CheckpointExplain | undefined): string[]",
+          "after_start_line": 75,
+          "dependents_count": 1
+        },
+        {
+          "type": "added",
+          "kind": "function",
+          "name": "findTrapLine",
+          "new_signature": "function findTrapLine(text: string): string | undefined",
+          "after_start_line": 85,
+          "dependents_count": 1
+        },
+        {
+          "type": "signature_changed",
+          "kind": "function",
+          "name": "knownTraps",
+          "old_signature": "async function knownTraps( cwd: string, radius: Set\u003cstring\u003e, limit = 12, ): Promise\u003cTrapEvidence\u003e",
+          "new_signature": "async function knownTraps( cwd: string, radius: Set\u003cstring\u003e, limit = 10, ): Promise\u003cTrapEvidence\u003e",
+          "before_start_line": 86,
+          "after_start_line": 106,
+          "dependents_count": 1
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/src/types.ts",
+      "status": "M",
+      "language": "TypeScript",
+      "changes": [
+        {
+          "type": "signature_changed",
+          "kind": "type",
+          "name": "Policy",
+          "old_signature": "type Policy = { depth: 1 | 2; exclude_tests: boolean; /** Silent-truncation budget on graph impact. The 4096 default clips radius. */ max_context_bytes: number; /** Which deterministic findings escalate to FAIL. */ fail_on: Array\u003c\"out_of_bounds\" | \"forgotten\"\u003e; /** Paths always permitted to change (docs, the contract store itself). */ always_allowed: string[]; /** Fail closed when evidence is degraded rather than reporting a soft PASS. */ fail_on_degraded: boolean; }",
+          "new_signature": "type Policy = { depth: 1 | 2; exclude_tests: boolean; /** Silent-truncation budget on graph impact. The 4096 default clips radius. */ max_context_bytes: number; /** Which deterministic findings escalate to FAIL. */ fail_on: Array\u003c\"out_of_bounds\" | \"forgotten\"\u003e; /** * Cap on reported drift candidates. Co-change is a ranked signal, not a set: * a file that changes alongside everything carries no information, and a long * list buries the one row that matters. */ drift_max: number; /** Ignore co-change relationships weaker than this many shared commits. */ drift_min_commits: number; /** Paths always permitted to change (docs, the contract store itself). */ always_allowed: string[]; /** Fail closed when evidence is degraded rather than reporting a soft PASS. */ fail_on_degraded: boolean; }",
+          "before_start_line": 101,
+          "after_start_line": 101,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Policy.drift_max",
+          "new_signature": "drift_max : number",
+          "after_start_line": 113,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "field",
+          "name": "Policy.drift_min_commits",
+          "new_signature": "drift_min_commits : number",
+          "after_start_line": 115,
+          "dependents_count": 3
+        },
+        {
+          "type": "signature_changed",
+          "kind": "variable",
+          "name": "DEFAULT_POLICY",
+          "old_signature": "DEFAULT_POLICY: Policy = { depth: 2, exclude_tests: false, max_context_bytes: 65536, fail_on: [\"out_of_bounds\", \"forgotten\"], always_allowed: [\".entire-guard/\", \"BUILDATHON.md\", \"evidence/\"], fail_on_degraded: false, }",
+          "new_signature": "DEFAULT_POLICY: Policy = { depth: 2, exclude_tests: false, max_context_bytes: 65536, fail_on: [\"out_of_bounds\", \"forgotten\"], drift_max: 5, drift_min_commits: 2, always_allowed: [\".entire-guard/\", \"BUILDATHON.md\", \"evidence/\"], fail_on_degraded: false, }",
+          "before_start_line": 114,
+          "after_start_line": 122,
+          "dependents_count": 5
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/test/fixtures/checkpoint-explain.json",
+      "status": "A",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "checkpoint_id",
+          "new_signature": "json key checkpoint_id",
+          "after_start_line": 2,
+          "dependents_count": 16
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "strategy",
+          "new_signature": "json key strategy",
+          "after_start_line": 3,
+          "dependents_count": 13
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "branch",
+          "new_signature": "json key branch",
+          "after_start_line": 4,
+          "dependents_count": 16
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "checkpoints_count",
+          "new_signature": "json key checkpoints_count",
+          "after_start_line": 5,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "files_touched",
+          "new_signature": "json key files_touched",
+          "after_start_line": 6,
+          "dependents_count": 8
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "session_count",
+          "new_signature": "json key session_count",
+          "after_start_line": 16,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "sessions",
+          "new_signature": "json key sessions",
+          "after_start_line": 17,
+          "dependents_count": 55
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "index",
+          "new_signature": "json key index",
+          "after_start_line": 19,
+          "dependents_count": 21
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "session_id",
+          "new_signature": "json key session_id",
+          "after_start_line": 20,
+          "dependents_count": 124
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "agent",
+          "new_signature": "json key agent",
+          "after_start_line": 21,
+          "dependents_count": 175
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "model",
+          "new_signature": "json key model",
+          "after_start_line": 22,
+          "dependents_count": 60
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "created_at",
+          "new_signature": "json key created_at",
+          "after_start_line": 23,
+          "dependents_count": 11
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "turn_id",
+          "new_signature": "json key turn_id",
+          "after_start_line": 24,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "token_usage",
+          "new_signature": "json key token_usage",
+          "after_start_line": 35,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "input_tokens",
+          "new_signature": "json key input_tokens",
+          "after_start_line": 36,
+          "dependents_count": 17
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "output_tokens",
+          "new_signature": "json key output_tokens",
+          "after_start_line": 37,
+          "dependents_count": 17
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "cache_read_tokens",
+          "new_signature": "json key cache_read_tokens",
+          "after_start_line": 38,
+          "dependents_count": 9
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "cache_creation_tokens",
+          "new_signature": "json key cache_creation_tokens",
+          "after_start_line": 39,
+          "dependents_count": 9
+        }
+      ]
+    },
+    {
+      "path": "mcp/entire-guard/test/fixtures/checkpoints.json",
+      "status": "M",
+      "language": "JSON",
+      "changes": [
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "checkpoint_id",
+          "new_signature": "json key checkpoint_id",
+          "after_start_line": 3,
+          "dependents_count": 16
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "session_id",
+          "new_signature": "json key session_id",
+          "after_start_line": 4,
+          "dependents_count": 124
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "date",
+          "new_signature": "json key date",
+          "after_start_line": 5,
+          "dependents_count": 3
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "message",
+          "new_signature": "json key message",
+          "after_start_line": 6,
+          "dependents_count": 94
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "agent",
+          "new_signature": "json key agent",
+          "after_start_line": 11,
+          "dependents_count": 175
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "is_logs_only",
+          "new_signature": "json key is_logs_only",
+          "after_start_line": 14,
+          "dependents_count": 4
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "session_count",
+          "new_signature": "json key session_count",
+          "after_start_line": 15,
+          "dependents_count": 0
+        },
+        {
+          "type": "added",
+          "kind": "section",
+          "name": "session_ids",
+          "new_signature": "json key session_ids",
+          "after_start_line": 16,
+          "dependents_count": 0
+        }
+      ]
+    }
+  ]
+}
