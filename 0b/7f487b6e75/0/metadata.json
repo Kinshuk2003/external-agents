@@ -56,6 +56,86 @@
   "session_metrics": {
     "turn_count": 7
   },
+  "summary": {
+    "intent": "Build 'entire-guard', an MCP server with two tools (propose_change/verify_change) that uses the Entire graph to detect forgotten callers when an agent edits a function — submitted as a Track 3 entry for the BTW Buildathon 2026.",
+    "outcome": "Core MCP server built and verified: 33 tests passing, MCP handshake confirmed, demo path rehearsed end-to-end with green→red→green proof, BUILDATHON.md and evidence/ artifacts committed, all audit gaps closed. Pre-curveball checkpoint minted and pushed. Curveball (dual transcript format support) understood but not yet implemented — correctly deferred to a fresh Entire session.",
+    "learnings": {
+      "repo": [
+        "entire-agent-kiro Go test suite is already red on Windows (clean tree) due to path separator mismatch: tests assert POSIX /tmp/... paths but Windows produces backslashes. Pre-existing, unrelated to this work.",
+        "main is a protected branch on the fork — git push origin always fails for code; checkpoints push to a separate ref (entire/checkpoints/v1) which is not protected and succeeds independently.",
+        "entire checkpoint list shows 0 for pending (unsynced) checkpoints; entire status is the authoritative source for pending count.",
+        "The repo contains seven Go agents (entire-agent-kiro and variants) sharing near-identical protocol.go files across separate modules — content-hash duplicates invisible to the compiler.",
+        "The curveball fixture track-3-agent-session.jsonl uses event (snake_case) as discriminator vs type (camelCase) in the original Entire format — different discriminator field, different casing throughout."
+      ],
+      "code": [
+        {
+          "path": "mcp/entire-guard/src/evidence/checkpoints.ts",
+          "line": 1,
+          "end_line": 60,
+          "finding": "Critical bug: adapter read id/sha but CLI emits checkpoint_id — every checkpoint was silently skipped while known_traps returned empty with a plausible degradation message. Fixed by pinning real fixture and correcting field name."
+        },
+        {
+          "path": "mcp/entire-guard/src/contract/build.ts",
+          "line": 1,
+          "end_line": 80,
+          "finding": "Depth-1 callers are often in the definition file itself — those obligations can never independently fire. Fixed to exclude same-file callers and deduplicate: a proven caller (git co-change) subsumes the heuristic (graph co-change) rather than double-reporting."
+        },
+        {
+          "path": "mcp/entire-guard/src/adjudicate/adjudicate.ts",
+          "line": 25,
+          "end_line": 25,
+          "finding": "Heredoc in bash collapsed backslashes (\\\\→\\), silently corrupting regex literals. Must use Write tool for any source containing backslashes."
+        },
+        {
+          "path": "agents/entire-agent-kiro/internal/protocol/handlers_test.go",
+          "line": 178,
+          "end_line": 178,
+          "finding": "Graph claimed handlers_test.go calls HandleResolveSessionFile — verified at line 178 by source read. Used as the demo's cross-file forgotten-caller proof."
+        },
+        {
+          "path": "mcp/entire-guard/src/core.ts",
+          "line": 110,
+          "end_line": 110,
+          "finding": "Graph claimed core.ts:110 in verify calls adjudicate — confirmed adjudicate( at line 110. Used to close the rubric's 'verified against source and tests' requirement."
+        },
+        {
+          "path": "mcp/entire-guard/evidence/README.md",
+          "line": 1,
+          "end_line": 10,
+          "finding": "Code snippets in evidence/README.md caused the graph to index it as a caller of adjudicate, producing a nonsense must_update obligation on a markdown file. Obligations must filter to code-language endpoints only."
+        }
+      ],
+      "workflow": [
+        "Staging and committing must happen in a single atomic shell invocation — staging in one call and committing in a separate call caused staged deletions to be silently dropped between invocations.",
+        "git push output is unreliable as a success signal: 'Everything up-to-date' printed while local and remote differed by 4 commits. Always verify with git rev-parse <branch> vs git rev-parse origin/<branch>.",
+        "Graph use must happen BEFORE editing for the Entire rubric — graph impact run after implementation scores only in the partial band (explicit in the judging criteria).",
+        "entire checkpoint explain --full carries reasoning text; entire checkpoint list --json and explain --json carry only metadata and files_touched. The full flag is required to reconstruct intent in a fresh session.",
+        "Incomplete transcript input must fail safe (land in degraded[], not silently reduce the blast radius) — fewer parsed file_changed events could turn a FAIL into a false PASS.",
+        "The Entire curveball process requires: commit stable state → confirm checkpoint → end session → start FRESH session → reconstruct from checkpoint → run graph impact → implement. Implementing in the same session forfeits the fresh-session reconstruction score."
+      ]
+    },
+    "friction": [
+      "Heredoc backslash collapse corrupted two source files silently — bash heredocs collapse \\\\ to \\ in TypeScript regex literals, requiring a switch to the Write tool mid-build.",
+      "entire checkpoint list printed 0 while entire status showed 1 checkpoint not yet on origin — misleading output that looked like a broken feature.",
+      "git push origin main rejected with protected branch error, but the same command silently succeeded for checkpoints/v1 ref and printed exit 0 despite fatal: send-pack exiting with error — mixed success/failure in one command with unreliable exit code.",
+      "Staged deletions were silently dropped between two separate shell invocations of git rm --cached and git commit — no error, commit appeared to succeed but ls-tree showed files still tracked.",
+      "pdftotext was required to read the participant guide and curveball PDF — no native PDF reading available, added a manual extraction step.",
+      "Go is not installed initially, blocking live go test proof of the forgotten-caller demo; Go installed mid-session but the test suite was already red on Windows due to path separator issues making it unusable for demo.",
+      "evidence/README.md code snippets caused a false-positive caller edge in the graph, creating a must_update obligation on a markdown file."
+    ],
+    "open_items": [
+      "Curveball implementation: dual transcript format support (Entire/Claude Code original format vs AcmeCode new format with different discriminator field and casing) — must be done in a fresh Entire session starting from checkpoint 0b7f487b6e75.",
+      "Run graph impact on changedSince, knownTraps, and parseJson symbols BEFORE editing in the fresh session (required for full rubric score).",
+      "Open PR: feat/entire-guard → fork's main via web UI (gh not installed) and confirm submission SHA.",
+      "known_traps false-negative fixed but only tested against entire-guard's own checkpoints — never proven live against the kiro agent checkpoints due to zero-intersection between kiro blast radius and our checkpoint history.",
+      "evidence/README.md false-positive caller: obligations should filter to code-language endpoints only — small fix deferred.",
+      "Drift warnings include .gitignore and ci.yml (infrastructure files) — need suppression by file pattern, not just by rank.",
+      "DESIGN §9 layer 3 automated E2E smoke test rehearsed by hand but not wired into CI.",
+      "Checkpoint history has 3 noisy entries with raw user prompt text as titles (entire checkpoint is read-only — can only be outweighed, not deleted).",
+      "Curveball BUILDATHON.md section stubbed with placeholder — needs real implementation notes after fresh session.",
+      "Seven near-identical protocol.go files across Go agent modules (content-hash duplicates) — the 'load-bearing discovery' from DESIGN §4A was never built into a detector."
+    ]
+  },
   "prompt_attributions": [
     {
       "checkpoint_number": 2,
