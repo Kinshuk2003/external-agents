@@ -338,3 +338,45 @@ also proves the §3 "no stray console.log on stdout" rule holds.
 - `evidence/` directory with the three required graph artifacts
 - `BUILDATHON.md`
 - Live rehearsal of the forgotten-caller demo moment
+
+### 11:28 IST — demo moment REHEARSED against a live edit (open risk closed)
+
+Ran the §7 critical path for real, on this repo, clean tree:
+
+```bash
+node mcp/entire-guard/dist/cli.js propose \
+  "agents/entire-agent-kiro/internal/protocol/protocol.go:107"
+# -> MUST UPDATE (1): handlers_test.go -> TestHandlerRoundTripForCoreProtocolCommands [CALLS]
+
+# ...edit protocol.go only, leaving the caller untouched...
+
+node mcp/entire-guard/dist/cli.js verify
+# -> VERDICT: FAIL - this change does not honour its contract
+# -> FORGOTTEN (1): handlers_test.go -> TestHandlerRoundTripForCoreProtocolCommands [CALLS]
+#    evidence: entire graph impact --symbol ...protocol.go:107 --repo . --depth 2 ...
+# exit code 2
+```
+
+`HandleResolveSessionFile` at `protocol.go:107` is the right demo target: it has exactly **one**
+depth-1 caller and that caller is in **another file**, so the contract is a single unambiguous
+line and the FAIL has one cause. The edit was reverted; the tree is clean.
+
+**Verified against source, as the rubric requires.** The graph claimed
+`handlers_test.go` calls `HandleResolveSessionFile`. Opened it:
+`handlers_test.go:178` calls `HandleResolveSessionFile([]string{"--session-dir", ..., "--session-id", "abc123"}, ...)`.
+The structural claim is true, confirmed by reading the source, not by trusting the tool.
+
+**For the live demo, use a genuinely breaking edit**, not a cosmetic one. Renaming the
+`--session-id` flag inside `HandleResolveSessionFile` breaks the caller at `handlers_test.go:178`
+which passes `--session-id` literally. Then "it forgot handlers_test.go" is a real bug the
+reviewer can see, not a hypothetical — open the file and prove it on the spot.
+
+Note: `go` is not on PATH in this shell, so `go test` was not run to observe the break. The
+verification above is source-level and is stated as such.
+
+### Quality issue found by the rehearsal (fix in the 1:00–2:30 window, not now)
+
+`DRIFT WARNINGS` printed **13 rows**, including `.gitignore`, `ci.yml`, `lint.yml` and
+`.golangci.yaml`. Files that change with everything carry no signal, and the noise buries the
+one line that matters. Fix: rank co-changes by commit count, cap the list, and drop
+non-source paths. Deliberately deferred — it is polish, and the freeze takes priority.
