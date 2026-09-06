@@ -154,3 +154,7 @@ fatal: send-pack exited with error: exit status 255
 PS C:\Users\kinsh\dev\external-agents> 
 
 I am getting this can you explain this why i am getting this
+
+---
+
+ok so what is expected is to do the the checkpointing now and close the ai chat session now and entire needs to track these as this is one of the judging and submission requirement, can you give me steps or verify it wheather these requirements are met or not if not please help me with how can we met this requirement
