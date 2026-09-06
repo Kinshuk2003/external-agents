@@ -1,5 +1,19 @@
 # entire-guard
 
+**Track 3 — Bring Entire to a New Agent or Workflow**
+
+| Submission field | Value |
+|---|---|
+| GitHub fork | https://github.com/Kinshuk2003/external-agents |
+| Pull request | https://github.com/Kinshuk2003/external-agents/pull/1 (branch `feat/entire-guard`) |
+| Entire mirror | `entire://aws-ap-south-1.entire.io/gh/kinshuk2003/external-agents` |
+| Final commit SHA | the tip of `feat/entire-guard` — `git rev-parse feat/entire-guard` |
+| Checkpoints | `362b7ddbefdc` · `2463e7d51ae5` · `0b7f487b6e75` · `5ce69064166d` · final (see the checkpoint table below) |
+| Databricks | not opted in |
+
+> `main` is a protected branch on the fork, so all code is delivered on `feat/entire-guard` via
+> PR #1. Entire Checkpoints sync independently on the `entire/checkpoints/v1` ref.
+
 ## One-sentence summary
 
 An MCP server that hands a coding agent a **change contract** derived from Entire Graph impact
@@ -108,16 +122,47 @@ and re-run it.
 
 ## Entire Graph findings and verification
 
-Full detail and reproduction commands: [`evidence/README.md`](evidence/README.md).
+The guide requires three artifacts. All three are below with the exact command that produced
+them; the raw JSON is committed under `evidence/` and `evidence/curveball/` so any of it can be
+re-run and compared. **Every command here is reproducible from the repository root.**
 
-1. **Search** (`evidence/01-search.json`) — located the adjudication logic from a plain-language
-   description.
-2. **Impact before a high-risk change** (`evidence/02-impact.json`) — run against our **own**
-   `adjudicate`, the highest-risk symbol in the project since every verdict flows through it.
-   Found 6 callers: 4 at depth 1, 2 transitively at depth 2.
-3. **Final semantic diff** (`evidence/03-semantic-diff.json`) — entity-level change set from the
-   pre-freeze commit to HEAD. `verify_change` runs this same command on every verdict, so the
-   required artifact *is* a product feature.
+1. **Search / definition lookup** — `evidence/01-search.json`
+
+   ```bash
+   entire graph search --query "change contract adjudication" --repo . --format json --top-k 8
+   ```
+
+   Located the adjudication logic from a plain-language description of what it does, without
+   naming a file.
+
+2. **Impact analysis before a high-risk change** — `evidence/02-impact.json`
+
+   ```bash
+   entire graph impact --symbol adjudicate --repo . --depth 2 --profile full \
+     --format json --max-context-bytes 65536
+   ```
+
+   Run against **this project's own adjudicator** — the highest-risk symbol we have, since every
+   verdict passes through it. Using the tool's own methodology on itself. Found `adjudicate` at
+   `mcp/entire-guard/src/adjudicate/adjudicate.ts:39` with **6 callers**: four at depth 1
+   (`core.ts` plus three test files) and two at depth 2 (`cli.ts`, `server.ts`).
+
+   `--max-context-bytes` is raised to 65536 because the 4096 default truncates the radius **with
+   no error** — the exact silent-clipping failure this product exists to catch.
+3. **Final semantic diff of the submitted implementation**
+   (`evidence/curveball/06-semantic-diff.json`) — `entire graph diff --base 28a5705 --head HEAD`,
+   re-run **after** the Curveball so it describes what is actually being submitted.
+   `evidence/03-semantic-diff.json` is the earlier, pre-Curveball run and is kept for comparison
+   rather than replaced.
+
+   **28 files with entity-level changes**, and their shape is the argument: `src/types.ts` is the
+   largest at 51 — all additive — while the **two format readers together are 5**. Format-aware
+   code is the smallest part of the change, which is the "do not duplicate the implementation per
+   format" rule measured rather than asserted. `src/evidence/git.ts` does not appear at all,
+   independently confirming the prediction the pre-edit `changedSince` impact run made.
+
+   `verify_change` runs this same command on every verdict, so the required artifact *is* a
+   product feature.
 
 **Verified against source.** The graph claimed `verify` in `core.ts` calls `adjudicate` at line
 110. `grep -n` confirms `adjudicate(` at line 110. Lines 34 and 39 also contain the word but are
@@ -137,10 +182,8 @@ looked right, feature did nothing.
 
 ## Noon Curveball: what changed and how we adapted
 
-**Track 3 card — "The agent changed its format."** Written in a fresh session reconstructed from
-Checkpoint `0b7f487b6e75`, with graph impact run **before** the first edit. The graph output that
-shaped it — six artifacts, the reproduction commands, and the source checks — is committed under
-[`evidence/curveball/`](evidence/curveball/README.md).
+**Track 3 card — "The agent changed its format."** Written in a fresh agent session reconstructed
+from Checkpoint `0b7f487b6e75`, with graph impact run **before** the first edit.
 
 > **Status.** The design in this section was written and checkpointed **before** any code changed,
 > as the card requires. It is now implemented and measured: `npm test` reports **82 passing, 0
@@ -220,16 +263,55 @@ presented as authoritative.
   `entire checkpoint explain` path already produces. This also closes a pre-Curveball open risk —
   that the `known_traps` happy path had never been exercised end to end.
 
-### What the graph told us *not* to change
+### Graph impact, run before editing — and what it told us *not* to change
 
-Impact ran on `changedSince`, `parseJson`, `knownTraps`, `verify` and `adjudicate` before any edit;
-raw JSON is committed under `evidence/curveball/`. It narrowed the change twice:
+Captured at clean `28a5705`, **before a source file was touched**. Raw JSON in
+`evidence/curveball/00-search.json` through `05-impact-adjudicate.json`.
 
-- `changedSince` has exactly one caller (`core.ts:100 verify`), so **`src/evidence/git.ts` is not
-  modified at all** — the new source goes beside it, not inside it.
-- `parseJson` has two callers, so it gains a **sibling** `parseJsonl()` rather than a modification.
+```bash
+entire graph search --repo . --profile full \
+  --query "determine which files the agent actually changed and adjudicate them against the contract"
 
-The blast radius is entirely within `mcp/entire-guard/src`. **No Go module is touched.**
+for sym in changedSince parseJson knownTraps verify adjudicate; do
+  entire graph impact --symbol $sym --repo . --depth 2 --profile full \
+    --format json --max-context-bytes 65536
+done
+```
+
+| Symbol | Callers found | What it changed about the plan |
+|---|---|---|
+| `changedSince` | 1 direct (`core.ts:100 verify`), 2 transitive (`cli.ts:31 main`, `server.ts`) | **`src/evidence/git.ts` is not modified at all.** The new source is added *beside* it, not inside it |
+| `parseJson` | 2 direct (`knownTraps`, `impact`) | Give it a **sibling** `parseJsonl()` rather than modify it, so neither caller is disturbed |
+| `knownTraps` | 1 direct (`core.ts:26 propose`) | The trap path has a single entry point, so a second trap *source* stays local |
+| `verify` | 2 direct (`cli.ts:31 main`, `server.ts`) | **Both** transports must gain the new optional input, or the feature is unreachable from one |
+| `adjudicate` | 5 direct — **3 of them test files** | The decisive finding: every new field must be **additive and optional**, so all 33 pre-Curveball tests keep passing unmodified |
+
+The two conclusions that mattered most are both *negative* results — the harder half of impact
+analysis to get by reading code, and the reason this change did not sprawl.
+
+**`co_changes: 0` and `siblings: 0` on all five symbols**, so no heuristic relation informed any of
+it; the narrowing rests entirely on deterministic `CALLS` / `ASYNC_CALLS` edges. The blast radius
+is entirely within `mcp/entire-guard/src`. **No Go module is touched.**
+
+**Verified against source, not taken on trust.** The graph claimed `verify` at `core.ts:100` is the
+sole direct caller of `changedSince`:
+
+```
+$ grep -n "changedSince" mcp/entire-guard/src/core.ts
+12:import { changedSince, dirtyFiles, headSha, repoRoot } from "./evidence/git.js";
+106:  const changed = await changedSince(root, contract.base_sha);
+```
+
+Line 106 sits inside `verify` (lines 100–121). File, function and line all match, and the import on
+line 12 is correctly *not* reported as a call site.
+
+**And one graph claim that was wrong, reported rather than hidden.** The `adjudicate` run listed
+`evidence/README.md` as a depth-1 caller — the graph matched the symbol name in **prose**, not in
+code. That row is real in the contract too: it appears as a `must_update` obligation and therefore
+in `forgotten`. It is pre-existing, unrelated to transcripts, and left disclosed rather than
+filtered, because filtering non-source obligations changes what a FAIL means. It is also the
+cleanest demonstration available of why this project treats graph output as evidence to be checked
+rather than as an oracle.
 
 ### Tests — 33 before, 82 after
 
@@ -281,6 +363,19 @@ node mcp/entire-guard/dist/cli.js verify --repo . \
   each session also exited **2**. Never lower.
 - **MCP handshake re-verified**: `initialize` → `entire-guard 0.1.0`, `tools/list` → both tools,
   each exposing `session`. No stdout pollution.
+- **Clean-checkout run**: cloned fresh, `npm install && npm run build && npm test` → **82 passing,
+  0 failing**. `dist/` is not committed, so the build step is required before an MCP client can
+  start the server.
+
+Observed for each fixture, all five through the same adjudicator:
+
+| Fixture | Format detected | `evidence_basis` | Disclosed in `degraded[]` |
+|---|---|---|---|
+| `track-3-agent-session.jsonl` (attached) | `acme-events` | `reconciled` | repository mismatch against this checkout |
+| `session-entire-protocol.jsonl` | `entire-protocol` | `reconciled` | repository mismatch |
+| `session-original-unknown-events.jsonl` | `entire-protocol` | `reconciled` | `type:5 x1 (line 2)`, `type:99 x1 (line 3)`, `hook:pre-compact x1 (line 4)` |
+| `session-unknown-events.jsonl` | `acme-events` | `reconciled` | `thinking_block`, `mcp_tool_call`, `subagent_spawned` |
+| `session-incomplete.jsonl` | `acme-events` | `reconciled` | `line 5 could not be parsed (Unterminated string in JSON…)`; no session-end event |
 
 ### Limitations this work exposed, stated before a reviewer finds them
 

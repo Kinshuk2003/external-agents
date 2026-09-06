@@ -91,6 +91,36 @@ against source before it is acted on.
 
 ---
 
+## 6. Final semantic diff of the submitted implementation — `06-semantic-diff.json`
+
+```bash
+entire graph diff --base 28a5705 --head HEAD --json --max-seconds 240
+```
+
+The third artifact the participant guide requires, re-run against **the submitted
+implementation** rather than against the pre-Curveball tree. `28a5705` is the stable state
+entering the Curveball, so this diff is exactly the Curveball delta, entity by entity.
+
+**28 files with entity-level changes.** The shape of it is the argument:
+
+| File | Entity changes | Why that number is the right one |
+|---|---|---|
+| `src/types.ts` | 51 | The largest by far, and all of it *additive* — new types plus optional fields on existing ones. Nothing was removed or narrowed, which is what let 33 pre-existing tests keep passing untouched. |
+| `src/evidence/session/normalize.ts` | 16 | The shared accumulator. Larger than either reader, which is the point: the format-specific files stay thin. |
+| `src/evidence/exec.ts` | 11 | `parseJsonl` added beside `parseJson`, not replacing it. |
+| `src/evidence/session/detect.ts` | 7 | Detection, isolated. |
+| `readers/entire-protocol.ts` + `readers/acme-events.ts` | 3 + 2 | **The two format readers together are 5 entity changes.** Format-aware code is the smallest part of the change. |
+| `src/adjudicate/adjudicate.ts` | 1 | The adjudicator gained one reconciliation block and stayed a pure function. |
+| `src/server.ts` | 1 | One optional tool parameter. |
+
+`src/evidence/git.ts` **does not appear at all** — the prediction made by the `changedSince`
+impact run at the top of this file, confirmed by an independent measurement at the end of it.
+
+This same command runs inside `verify_change` on every verdict, so the artifact the guide requires
+is not a submission chore: it is a product feature, exercised on every run.
+
+---
+
 ## Live verification, after implementation
 
 The impact analysis above ran before any edit. This section records what the implementation it
